@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
+
+.container h1{
+    color: #f39f2a;
+}
+
+.header {
+    background-color: #606C38;
+}
+
+.header .container{
+    justify-content: space-between;
+}
+
+.navbar {
+    width: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.navbar button {
+    border: none;
+    width: 7vw;
+    padding: 10px;
+    margin-left: 30px;
+    background-color: #f39f2a;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.navbar .now{
+    color: #f39f2a;
+    text-decoration: underline 3px;
+}
+
+.bem_vindo {
+    display: flex;
+    height: 50vh;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.sobreN {
+    display: flex;
+}
+
+.sobreN .texto {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sobreN p{
+    width: 50%;
+}
+
+.sobreN img{
+    width: 90%;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:#f39f2a ;
+    background-color: #606C38;
+}
