@@ -56,7 +56,27 @@ body {
     display: flex;
     height: 50vh;
     width: 50%;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.bem_vindo b{
+    color: #f39f2a;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info .lista{
+    width: 90%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
 }
 
 .sobreN {
@@ -75,6 +95,30 @@ body {
 
 .sobreN img{
     width: 90%;
+}
+
+.equipe {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.equipe .grupo{
+    display: flex;
+    justify-content: space-around;
+}
+
+.equipe .grupo img{
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 100%;
+}
+
+.equipe .grupo h4{
+    display: flex;
+    justify-content: center;
 }
 
 .footer {
