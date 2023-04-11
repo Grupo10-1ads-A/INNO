@@ -21,7 +21,7 @@
 
             <div class="navbar">
                 <div>
-                    <a href="index.html" >Home</a>
+                    <a href="index.html">Home</a>
                 </div>
                 <div>
                     <a href="">Contatos</a>
@@ -43,19 +43,36 @@
         </div>
     </div>
 
-    <div class="#">
-        <div class="#">Nome <br> <input class="#" id="inp_Nome"></div><br>
-        <div class="#">Senha <br> <input class="#" id="inp_senha"></div><br>
-        <div class="#"><button onclick="SELECT_DADOS()">XXXXXXXX</button></div>
+    <div class="formbox">
+        <div class="card">
+            <h1>Login</h1>
+            <div class="email">
+                E-mail <br> <input type="text" class="#" id="inp_email" placeholder="E-mail">
+            </div> <br>
+
+            <div class="senha">
+                Senha <br> <input type="text" class="#" id="inp_senha" placeholder="******">
+            </div> <br>
+
+            <div class="botao">
+                <button onclick="SELECT_DADOS()">Login</button>
+            </div>
+            <div class="faixa">
+                <div class="cadastrese">
+                    Ainda não tem conta? <button>Cadastre-se</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
 <script>
-    function SELECT_DADOS() {}
+    function SELECT_DADOS() { }
 
 
-    function pagina_cadastro(){
-        window.location.href='cadastro.html'}
+    function pagina_cadastro() {
+        window.location.href = 'cadastro.html'
+    }
 
 </script>

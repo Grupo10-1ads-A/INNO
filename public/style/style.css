@@ -179,3 +179,67 @@ body {
     width: 40px;
 }
 
+/* LOGIN */
+
+.formbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+    margin-top: 0px;
+    background-color: #2b78c5c9;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.card input{
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 3px;
+}
+
+.card button {
+    height: 30px;
+    width: 100px;
+    background-color: #0466C8;
+    font-weight: 750;
+    
+}
+
+.faixa{
+    background-color: #0466c853;
+    margin-top: 45px;
+    border-radius: 5px;
+    height: 100px;
+    width: 500px;
+}
+
+.cadastrese {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 55px;
+    margin-left: 160px;
+    font-size: medium;
+    margin-right: 50px;
+}
+
+.cadastrese button {
+    align-items: end;
+    margin-left: 8px;
+    font-size: small;
+    height: 30px;
+    width: 100px;
+}
