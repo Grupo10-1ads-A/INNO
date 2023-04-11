@@ -76,6 +76,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 20vh;
+}
+
+
+.info h1 {
+    padding-bottom: 10vh;
 }
 
 .info .lista{
@@ -85,8 +91,18 @@ body {
     justify-content: space-around;
 }
 
+.info .lista div{
+    display: flex;
+    flex-direction: column;
+}
+
+.info .lista img{
+    width: 100px;
+}
+
 .sobreN {
     display: flex;
+    padding-bottom: 30vh;
 }
 
 .sobreN .texto {
@@ -108,6 +124,7 @@ body {
     margin-top: 10vh;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 30vh;
 }
 
 .equipe .grupo{
@@ -133,5 +150,32 @@ body {
     justify-content: center;
     flex-direction: column;
     color: white;
-    background-color: #0466C8;
+    background-color: #33415C;
 }
+
+.footer .sigam {
+    background-color: #001233;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer .sigam .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer .sigam a {
+    text-decoration: none;
+}
+
+.footer .sigam img {
+    width: 40px;
+}
+
