@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
 
 }
 
@@ -194,32 +195,36 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 400px;
-    width: 500px;
+    height: 355px;
+    width: 400px;
     margin-top: 0px;
-    background-color: #2b78c5c9;
+    background-color: #979dacb6;
     border-radius: 10px;
     font-weight: 600;
+    color: white;
 }
 
 .card input{
     text-align: center;
     height: 30px;
     border-radius: 5px;
-    border: none;
     margin-top: 3px;
+    border-width: 2.5px;
+    border-color: black;
+    border: solid;
 }
 
 .card button {
     height: 30px;
     width: 100px;
-    background-color: #0466C8;
+    background-color: #33415C;
     font-weight: 750;
+    color: white;
+    border: none;
     
 }
 
 .faixa{
-    background-color: #0466c853;
     margin-top: 45px;
     border-radius: 5px;
     height: 100px;
@@ -228,18 +233,17 @@ body {
 
 .cadastrese {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    margin-top: 55px;
-    margin-left: 160px;
     font-size: medium;
-    margin-right: 50px;
 }
 
-.cadastrese button {
-    align-items: end;
-    margin-left: 8px;
-    font-size: small;
-    height: 30px;
-    width: 100px;
+.cadastrese a {
+    text-decoration: none;
+    color: white;
+}
+
+.bodyLogin {
+    background-image: url(../assets/back-ground/back-ground-login.jpg);
+    background-size: cover;
 }
