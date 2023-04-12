@@ -247,3 +247,51 @@ body {
     background-image: url(../assets/back-ground/back-ground-login.jpg);
     background-size: cover;
 }
+
+/* CADASTRO */
+
+.bodyCadastro {
+    background-image: url(../assets/back-ground/back-ground-login.jpg);
+    background-size: cover;
+}
+
+.formboxCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.cardCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 400px;
+    margin-top: 0px;
+    background-color: #979dacb6;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.cardCadastro input {
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 3px;
+    border-width: 2.5px;
+    border-color: black;
+    border: solid;
+}
+
+.cardCadastro button {
+    height: 30px;
+    width: 100px;
+    background-color: #33415C;
+    font-weight: 750;
+    color: white;
+    border: none;
+    
+}

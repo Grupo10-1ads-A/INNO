@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
+<body class="bodyCadastro">
     <div class="header">
 
         <div class="container">
@@ -21,7 +21,7 @@
 
             <div class="navbar">
                 <div>
-                    <a href="index.html" >Home</a>
+                    <a href="index.html">Home</a>
                 </div>
                 <div>
                     <a href="">Contatos</a>
@@ -43,17 +43,21 @@
         </div>
     </div>
 
-    <div class="#">
-        <div class="#">Nome <br> <input id="inp_Nome"></div><br>
-        <div class="#">E-mail <br> <input class="#" id="inp_email"></div><br>
-        <div class="#">Senha <br> <input class="#" id="inp_senha"></div><br>
-        <div class="#">Confirme sua Senha <br> <input class="#" id="inp_confirmSenha"></div><br>
-        <div class="#"><button onclick="INSERT_DADOS()"></button></div>
+    <div class="formboxCadastro">
+        <div class="cardCadastro">
+            <h1>Cadastro</h1>
+            <div class="#">Nome <br> <input id="inp_Nome" placeholder="Nome"></div><br>
+            <div class="#">E-mail <br> <input class="#" id="inp_email" placeholder="E-mail"></div><br>
+            <div class="#">Senha <br> <input class="#" type="password" id="inp_senha" placeholder="******"></div><br>
+            <div class="#">Confirme sua Senha <br> <input class="#" type="password" id="inp_confirmSenha" placeholder="******"></div><br>
+            <div class="#"><a href="cadastro de empresa.html"><button onclick="INSERT_DADOS()">Seguinte</button></a></div>
+        </div>
     </div>
 </body>
 
 </html>
 <script>
-    function pagina_cadastro_Empresa(){
-        window.location.href='cadastro de empresa.html'}
+    function pagina_cadastro_Empresa() {
+        window.location.href = 'cadastro de empresa.html'
+    }
 </script>
