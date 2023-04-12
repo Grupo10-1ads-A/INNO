@@ -21,7 +21,7 @@
 
             <div class="navbar">
                 <div>
-                    <a href="index.html" >Home</a>
+                    <a href="index.html">Home</a>
                 </div>
                 <div>
                     <a href="">Contatos</a>
@@ -43,20 +43,43 @@
         </div>
     </div>
 
-    <div> Nome Empresarial <br> <input type=""></div> <br>
-    <div> Nome Fantasia <br> <input type=""></div> <br>
-    <div>CNPJ <br> <input type=""></div> <br>
-    <div>E-mail <br> <input type="text"></div> <br>
-    <div>CEP <br> <input type="text"></div> <br>
-    <div>Rua <br> <input type="text"></div> <br>
-    <div>Bairro <br> <input type="text"></div> <br>
-    <div>Cidade <br> <input type="text"></div> <br>
-    <div>Estado <br> <input type="text"></div> <br>
+    <div> Nome Empresarial <br> <input id="nome_empresa_input"></div> <br>
+
+    <div> Nome Fantasia <br> <input id="nome_fantasia_input"></div> <br>
+
+    <div>CNPJ <br> <input id="cnpj_input"></div> <br>
+
+    <div>E-mail <br> <input id="email_input"></div> <br>
+
+    <div>CEP <br> <input id="cep_input"></div> <br>
+
+    <div>Rua <br> <input id="rua_input"></div> <br>
+
+    <div>Bairro <br> <input id="bairro_input"></div> <br>
+
+    <div>Cidade <br> <input id="cidade_input"></div> <br>
+
+    <div>Estado <br> <input id="estado_input"></div> <br>
+
+    <button onclick="confirmar_cadastro()">confirmar</button>
 
 </body>
 
 </html>
 <script>
-    function pagina_cadastro(){
-        window.location.href='cadastro.html'}
+    function pagina_cadastro() {
+        window.location.href = 'cadastro.html'
+    }
+
+    function confirmar_cadastro() {
+        var nome_empresarial_var = nome_empresa_input.value
+        var nome_fantasia_var = nome_fantasia_input.value
+        var cnpj_var = cnpj_input.value
+        var email_var = email_input.value
+        var cep_var = cep_input.value
+        var rua_var = rua_input.value
+        var bairro_var = bairro_input.value
+        var cidade_var = cidade_input.value
+        var estado_var = estado_input.value
+    }
 </script>
