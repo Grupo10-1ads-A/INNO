@@ -6,23 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro - InnoTech</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="src/images/INNO Tech - Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navegation">
-            <img src="src/images/INNO Tech - Logo.svg" class="logo-Inno">
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Sobre Nós</a></li>
-                <li><a href="">Principios</a></li>
-                <li class="button-link"><a href="" class="fale-conosco-text">Fale conosco</a></li>
-            </ul>
-        </nav>
-        <hr>
-    </header>
+    <div class="header">
+
+        <div class="container">
+            <div>
+                <h1>
+                    MOLD TECH
+                </h1>
+            </div>
+
+            <div class="navbar">
+                <div>
+                    <a href="index.html">Home</a>
+                </div>
+
+                <div>
+                    <a href="calculadora.html">Simulador Financeiro</a>
+                </div>
+
+                <div>
+                    <a href="login.html">Login</a>
+                </div>
+
+                <div>
+                    <button onclick="pagina_cadastro()">Cadastro</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
     <main>
         <section class="container">
@@ -69,9 +86,6 @@
                 </div>
 
             </div><br><br><br>
-            <div class="caixa-image">
-                <img src="src/images/Figure - Main.png" class="img-vector">
-            </div>
         </section>
     </main>
 
@@ -84,6 +98,9 @@
 </html>
 
 <script>
+    function pagina_cadastro(){
+        window.location.href = "cadastro.html"
+    }
     function Dados() {
 
         // Var dos inputs
