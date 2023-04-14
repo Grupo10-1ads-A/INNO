@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard CHART JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="tela">
+        
+        
+    </div>
+    <div class="tela">
+
+        <div class="grafico">
+            <div class="descritionG">Grafico de umidade (%)</div>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="grafico">
+            <div class="descritionG">Grafico de Temperatura (°C)</div>
+            <canvas id="myChart2"></canvas>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    const ctx = document.getElementById('myChart');
+    let chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    label: 'Sensor_Umidade_1_%',
+                    data: [60, 62, 61, 60,63]
+                },
+                {
+                    label: 'Sensor_Umidade_2_%',
+                    data: [34, 44, 42, 44,47]
+                },
+                {
+                    label: 'Sensor_Umidade_3_%',
+                    data: [23, 23, 22, 25,30]
+                }],
+
+            labels: ['12:00', '12:15', '12:30','12:45','13:00']
+        },
+        options: {
+            scales: {
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            }
+        }
+    });
+    const ctx2 = document.getElementById('myChart2');
+    let chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Sensor_Tmperatura_1_°C',
+                data: [23, 23, 22, 25,24]
+            },
+            {
+                label: 'Sensor_Temperatura_2_°C',
+                data: [24, 23, 24, 26,24]
+            },
+            {
+                label: 'Sensor_Temperatura_3_°C',
+                data: [24, 18, 17, 12,24]
+            }],
+
+            labels: ['12:00', '12:15', '12:30','12:45','13:00']
+        },
+        options: {
+            scales: {
+                y: {
+                    suggestedMin: 10,
+                    suggestedMax: 100
+                }
+            }
+        }
+    });
+</script>
+<style>
+    .tela {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .descritionG {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .grafico {
+        /* display: flex;
+        justify-content: center;*/
+        width: 50%; 
+    }
+</style>
