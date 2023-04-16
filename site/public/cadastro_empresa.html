@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
+<body class="bodyCadastroEmpresa">
     <div class="header">
 
         <div class="container">
@@ -43,25 +43,42 @@
         </div>
     </div>
 
-    <div> Nome Empresarial <br> <input id="nome_empresa_input"></div> <br>
+    <div class="formboxCadastroEmpresa">
+        <div class="cardCadastroEmpresa">
+            <div class="cadastroInfo">
+                <div> Nome Empresarial <br> <input id="nome_empresa_input"></div> <br>
 
-    <div> Nome Fantasia <br> <input id="nome_fantasia_input"></div> <br>
+                <div> Nome Fantasia <br> <input id="nome_fantasia_input"></div> <br>
 
-    <div>CNPJ <br> <input id="cnpj_input"></div> <br>
+                <div>CNPJ <br> <input id="cnpj_input"></div> <br>
 
-    <div>E-mail <br> <input id="email_input"></div> <br>
+                <div>E-mail <br> <input id="email_input"></div> <br>
 
-    <div>CEP <br> <input id="cep_input"></div> <br>
+                <div>Telefone<br> <input id="telefone_input"></div> <br>
+            </div>
 
-    <div>Rua <br> <input id="rua_input"></div> <br>
+            <div class="cadastroEndereco">
+                <div>CEP <br> <input id="cep_input"></div> <br>
 
-    <div>Bairro <br> <input id="bairro_input"></div> <br>
+                <div>Logradouro <br> <input id="logradouro_input"></div> <br>
 
-    <div>Cidade <br> <input id="cidade_input"></div> <br>
+                <div>Número <br> <input id="numero_input"> </div> <br>
 
-    <div>Estado <br> <input id="estado_input"></div> <br>
+                <div>Bairro <br> <input id="bairro_input"></div> <br>
 
-    <button onclick="confirmar_cadastro()">confirmar</button>
+                <div>Cidade <br> <input id="cidade_input"></div> <br>
+
+                <div>Estado <br> <input id="estado_input"></div> <br>
+
+            </div>
+            <div class="botao">
+                <button onclick="confirmar_cadastro()">Confirmar</button>
+            </div>
+        </div>
+
+    </div>
+
+
 
 </body>
 
@@ -71,86 +88,16 @@
         window.location.href = 'cadastro.html'
     }
 
-    function cadastrar() {
-        aguardar();
-
-        //Recupere o valor da nova input pelo nome do id
-        // // Agora vá para o método fetch logo abaixo
-        // var nomeVar = inp_Nome.value;
-        // var emailVar = inp_email.value;
-        // var cpfVar = inp_cpf.value;
-        // var senhaVar = inp_senha.value;
-        // var confirmacaoSenhaVar = inp_confirmSenha.value;
-
+    function confirmar_cadastro() {
         var nome_empresarial_var = nome_empresa_input.value
         var nome_fantasia_var = nome_fantasia_input.value
         var cnpj_var = cnpj_input.value
         var email_var = email_input.value
         var cep_var = cep_input.value
-        var rua_var = rua_input.value
+        var logradouro_var = logradouro_input.value
+        var numero_var = numero_input.value
         var bairro_var = bairro_input.value
         var cidade_var = cidade_input.value
         var estado_var = estado_input.value
-
-        // if (nomeVar == "" || emailVar == "" || cpfVar == ""|| senhaVar == "" || confirmacaoSenhaVar == "") {
-        //     cardErro.style.display = "block"
-        //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-        //     finalizarAguardar();
-        //     return false;
-        // }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                nomeFantasiaServer: nome_fantasia_var,
-                cnpjServer: cnpj_var,
-                emailServer: email_var,
-                cepServer: cep_var,
-                ruaServer: rua_var,
-                bairroServer: bairro_var,
-                cidadeServer: cidade_var,
-                estadoServer: estado_var
-                
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
     }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }   
-
 </script>

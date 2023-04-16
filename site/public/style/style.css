@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    /*background-color: lightblue;*/
+    background-color: lightblue;
 
 }
 
@@ -278,9 +278,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 450px;
+    height: 530px;
     width: 400px;
-    margin-top: 0px;
+    margin-top: 1px;
     background-color: #979dacb6;
     border-radius: 10px;
     font-weight: 600;
@@ -298,6 +298,88 @@ body {
 }
 
 .cardCadastro button {
+    height: 30px;
+    width: 100px;
+    background-color: #33415C;
+    font-weight: 750;
+    color: white;
+    border: none;
+    
+}
+
+/* CADASTRO EMPRESA */
+
+.bodyCadastroEmpresa {
+    background-image: url(../assets/back-ground/back-ground-login.jpg);
+    background-size: cover;
+}
+
+.formboxCadastroEmpresa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.cardCadastroEmpresa {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 800px;
+    margin-top: 0px;
+    background-color: #979dacb6;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.cadastroInfo{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    margin-left: 120px;
+}
+
+.cadastroEndereco {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    margin-left: 180px;
+    margin-right: 50px;
+}
+
+/*.cardCadastroEmpresa button {
+    height: 30px;
+    width: 100px;
+    background-color: #33415C;
+    font-weight: 750;
+    color: white;
+    border: none;
+    margin-right: 150px;
+}*/
+
+
+.cardCadastroEmpresa input {
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 3px;
+    border-width: 2.5px;
+    border-color: black;
+    border: solid;
+}
+
+.cardCadastroEmpresa .botao button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+    flex-wrap: wrap;
+}
+
+.cardCadastroEmpresa .botao button {
     height: 30px;
     width: 100px;
     background-color: #33415C;
