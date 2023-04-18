@@ -12,7 +12,7 @@ body {
     display: flex;
 }
 
-.container h1{
+.container h1 {
     color: white;
 }
 
@@ -24,7 +24,7 @@ body {
     background-color: #0466C8;
 }
 
-.header .container{
+.header .container {
     justify-content: space-between;
 }
 
@@ -55,7 +55,7 @@ body {
     font-size: large;
 }
 
-.navbar .now{
+.navbar .now {
     text-decoration: underline 3px;
 }
 
@@ -77,7 +77,7 @@ body {
     flex-direction: column;
 }
 
-.bem_vindo b{
+.bem_vindo b {
     color: #f39f2a;
 }
 
@@ -87,7 +87,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding-bottom: 20vh;
-   
+
 }
 
 
@@ -95,7 +95,7 @@ body {
     padding-bottom: 10vh;
 }
 
-.info .lista{
+.info .lista {
     width: 100%;
     height: 30vh;
     display: flex;
@@ -103,7 +103,7 @@ body {
     justify-content: space-around;
 }
 
-.info .lista div{
+.info .lista div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,34 +111,9 @@ body {
     width: 20vw;
 }
 
-.info .lista img{
+.info .lista img {
     width: 100px;
 }
-
-.simulador{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding-bottom: 20vh;
-    border: #0466C8 solid 13px;
-    
-     /* background-color: #1f71c4;  */
-    
-}
-
-.simulador button{
-border: none;
-width: 150px;
-height: 40px;
-padding: 3px;
- border-radius: 5%;
- font-size: medium;
- background-color: #0466C8;
- color: white;
- 
-}
-
-
 
 .sobreN {
     display: flex;
@@ -153,7 +128,7 @@ padding: 3px;
     flex-direction: column;
 }
 
-.sobreN p{
+.sobreN p {
     width: 50%;
 }
 
@@ -165,19 +140,19 @@ padding: 3px;
     padding-bottom: 30vh;
 }
 
-.equipe .grupo{
+.equipe .grupo {
     display: flex;
     justify-content: space-around;
 }
 
-.equipe .grupo img{
+.equipe .grupo img {
     width: 200px;
     height: 200px;
     background-color: gray;
     border-radius: 100%;
 }
 
-.equipe .grupo h4{
+.equipe .grupo h4 {
     display: flex;
     justify-content: center;
 }
@@ -228,7 +203,7 @@ padding: 3px;
     margin-top: 100px;
 }
 
-.card{
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,7 +217,7 @@ padding: 3px;
     color: white;
 }
 
-.card input{
+.card input {
     text-align: center;
     height: 30px;
     border-radius: 5px;
@@ -259,10 +234,10 @@ padding: 3px;
     font-weight: 750;
     color: white;
     border: none;
-    
+
 }
 
-.faixa{
+.faixa {
     margin-top: 45px;
     border-radius: 5px;
     height: 100px;
@@ -331,7 +306,7 @@ padding: 3px;
     font-weight: 750;
     color: white;
     border: none;
-    
+
 }
 
 /* CADASTRO EMPRESA */
@@ -362,7 +337,7 @@ padding: 3px;
     color: white;
 }
 
-.cadastroInfo{
+.cadastroInfo {
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -376,17 +351,6 @@ padding: 3px;
     margin-left: 180px;
     margin-right: 50px;
 }
-
-/*.cardCadastroEmpresa button {
-    height: 30px;
-    width: 100px;
-    background-color: #33415C;
-    font-weight: 750;
-    color: white;
-    border: none;
-    margin-right: 150px;
-}*/
-
 
 .cardCadastroEmpresa input {
     text-align: center;
@@ -413,5 +377,45 @@ padding: 3px;
     font-weight: 750;
     color: white;
     border: none;
-    
+
+}
+
+/*calculadora*/
+
+.simulacao-css .info {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    padding: 0;
+}
+
+.simulacao-css .info input {
+    padding: 4px;
+    border-radius: 10px;
+    border: #0466C8 2px solid;
+}
+
+.simulacao-css {
+    display: flex;
+    justify-content: space-between;
+}
+
+.simulador {
+    padding: 0;
+    padding-top: 5vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: #0466C8 solid 13px;
+}
+
+.simulador button {
+    border: none;
+    width: 150px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 10px;
+    font-size: medium;
+    background-color: #0466C8;
+    color: white;
 }
