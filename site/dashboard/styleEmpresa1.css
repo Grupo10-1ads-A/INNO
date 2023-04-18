@@ -1,0 +1,19 @@
+.tela {
+    display: flex;
+    
+}
+
+.grafico {
+    width: 50%;
+
+}
+
+.alerta {
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    color: rgb(170, 0, 0);
+    font-size: x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 15px;
+}
