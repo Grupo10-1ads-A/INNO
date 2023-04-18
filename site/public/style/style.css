@@ -388,6 +388,9 @@ body {
     width: 50%;
     padding: 0;
 }
+.simulacao-css .h3_title {
+    font-size: 50px;
+}
 
 .simulacao-css .info input {
     padding: 4px;
@@ -406,7 +409,7 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    border: #0466C8 solid 13px;
+    border: #0466C8 solid 100px;
 }
 
 .simulador button {
