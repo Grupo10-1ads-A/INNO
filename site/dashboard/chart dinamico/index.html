@@ -127,9 +127,17 @@
 
              var ultimoValor = valores[valores.length - 1]
              if(ultimoValor >= 60 && endpoint == "dht11/umidade") {
-                 alert("a umidade esta inadequada")}
+                 alert("A umidade esta muito alta")}
+            
+                 if(ultimoValor <= 50 && endpoint == "dht11/umidade") {
+                 alert("A umidade esta muito baixa")}
+
+
                  if (ultimoValor >= 25 && endpoint == "dht11/temperatura")
-                 { alert("a temperatura esta inadequada")}
+                 { alert("A temperatura esta muito quente")}
+
+                 if(ultimoValor <= 5 && endpoint == "dht11/temperatura") {
+                 alert("A temperatura esta Muito fria")}
            
            
                 // Exibir à partir do último elemento exibido anteriormente
