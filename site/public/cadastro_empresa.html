@@ -99,5 +99,8 @@
         var bairro_var = bairro_input.value
         var cidade_var = cidade_input.value
         var estado_var = estado_input.value
+
+        if (nome_empresarial_var != "" && nome_fantasia_var != "" && cnpj_var != "" && email_var != "" && cep_var != "" && logradouro_var != "" && numero_var != "" && bairro_var != "" && cidade_var != "" && estado_var != "") { window.location.href = 'cadastro.html' }
+        else (alert("Certifique-se que todos os campos estão preenchidos."))
     }
 </script>
