@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightblue;
+    background-color: rgb(252, 254, 255);
 
 }
 
@@ -87,6 +87,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding-bottom: 20vh;
+   
 }
 
 
@@ -113,6 +114,31 @@ body {
 .info .lista img{
     width: 100px;
 }
+
+.simulador{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-bottom: 20vh;
+    border: #0466C8 solid 13px;
+    
+     /* background-color: #1f71c4;  */
+    
+}
+
+.simulador button{
+border: none;
+width: 150px;
+height: 40px;
+padding: 3px;
+ border-radius: 5%;
+ font-size: medium;
+ background-color: #0466C8;
+ color: white;
+ 
+}
+
+
 
 .sobreN {
     display: flex;
@@ -157,12 +183,13 @@ body {
 }
 
 .footer {
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     color: white;
-    background-color: #33415C;
+    background-color: #001233;
 }
 
 .footer .sigam {
