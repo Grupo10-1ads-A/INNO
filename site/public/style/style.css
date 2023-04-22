@@ -120,16 +120,18 @@ body {
     padding-bottom: 30vh;
     color: white;
     background-color: #33415C;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .sobreN .texto {
     display: flex;
-    align-items: center;
+    align-items:center;
     flex-direction: column;
 }
 
 .sobreN p {
     width: 50%;
+    
 }
 
 .equipe {
