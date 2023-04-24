@@ -115,6 +115,11 @@ body {
     width: 100px;
 }
 
+.descricao_analise {
+    display: flex;
+    margin-left: 92px;
+}
+
 .sobreN {
     display: flex;
     flex-direction: column;
@@ -129,6 +134,15 @@ body {
     align-items:center;
     flex-direction: column;
     padding-bottom: 30vh;
+    margin-top: 85px
+}
+
+.descricao {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    font-size: large;
+
 }
 
 .sobreN .perguntas{

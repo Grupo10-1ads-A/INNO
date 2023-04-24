@@ -26,7 +26,8 @@
                 </div>
 
                 <div>
-                    <a href="javascript:window.scrollTo({left: 0,top: 1700, behavior: 'smooth'})">Simulador Financeiro</a>
+                    <a href="javascript:window.scrollTo({left: 0,top: 1700, behavior: 'smooth'})">Simulador
+                        Financeiro</a>
                 </div>
 
                 <div>
@@ -60,33 +61,38 @@
             <div>
                 <img src="assets/icons/monitor.png" alt="">
                 <h4>Facil de usar</h4>
-                <p>100% online e de faço acesso</p>
+                <p>100% online e de faço acesso.</p>
             </div>
             <div>
                 <img src="assets/icons/line-chart.png" alt="">
                 <h4>Analises de dados</h4>
-                <p>Metricas e infomações de facil entendimento</p>
+                <div class="descricao_analise">
+                    <p>Metricas e infomações de facil entendimento.</p>
+                </div>
             </div>
             <div>
                 <img src="assets/icons/clock.png" alt="">
                 <h4>Tempo real</h4>
                 <p>
                     Atualização de dados em tempo real
-                    e sem perda de tempo
+                    e sem perda de tempo.
                 </p>
             </div>
         </div>
 
     </div>
-    
+
     <div class="sobreN">
         <div class="texto">
             <h1>Sobre Nós</h1>
-            <p>
-                A INNO é uma empresa que visa reduzir significativamente as ocorrências de bolor e mofo nos alimentos
-                armazenados de indústrias panificadoras, utilizando sensores e um sistema de monitoramento online,
-                evitando assim prejuízos e proliferação do bolor.
-            </p>
+            <div class="descricao">
+                <p>
+                    A INNO é uma empresa que visa reduzir significativamente as ocorrências de bolor e mofo nos
+                    alimentos
+                    armazenados de indústrias panificadoras, utilizando sensores e um sistema de monitoramento online,
+                    evitando assim prejuízos e proliferação do bolor.
+                </p>
+            </div>
         </div>
 
         <div class="perguntas">
@@ -98,10 +104,39 @@
         </h2>
         <div>
             <p>
-                O bolor é pre estagio quando o fungo chega no estagio do mofo o produto  
+                O bolor é o momento inicial de um fungo, sendo mais superficial, já o mofo seria um estágio mais
+                avançado e mais prejudicial para a saúde.
             </p>
-            
+            <h2>
+                Quais os sintomas da ingestão de alimentos mofados?
+            </h2>
         </div>
+        <p>
+            A ingestão de alimentos contaminados por esses fungos podem causar vômitos, alergias, diarreia, intoxicação
+            alimentar, dores abdominais e até mesmo o câncer.
+        </p>
+        <h2>
+            Como se forma o bolor?
+        </h2>
+        <div>
+            <p>
+                O bolor se desenvolve a partir de esporos espalhados pelo ar em ambientes com má ventilação, além de
+                outros fatores, como temperatura e umidade.
+            </p>
+        </div>
+        <h2>
+            Qual a temperatura e umidade ideal para o controle do bolor?
+        </h2>
+        <div>
+            <p>
+                A temperatura ideal é entre 5°C e 25°C. <br>
+                Já a umidade tem que estar entre 50% e no máximo 60%.
+            </p>
+
+
+        </div>
+    </div>
+    </div>
     </div>
 
     <!--  -----teste simulador ------ -->
@@ -248,7 +283,7 @@
         Com os servicos da Innotech, teriamos uma diminuição no prejuízo mensal de <b style="color: #5093F9";> 15%</b>. <br>
         Totalizando assim um lucro final de: <b style="color: #5093F9";> R$${lucroTemp}</b>
 `
-            }else if (Problema == "Umidade") {
+            } else if (Problema == "Umidade") {
 
                 div_text.innerHTML += `
        
@@ -256,7 +291,7 @@
         Com os servicos da Innotech, teriamos uma diminuição no prejuízo mensal de <b style="color: #5093F9";> 20%</b>. <br>
         Totalizando assim um lucro final de: <b style="color: #5093F9";> R$${lucroUmidade}</b>
 `
-            }else if (Problema == "Ambos") {
+            } else if (Problema == "Ambos") {
 
                 div_text.innerHTML += `
           A empresa tem que seus lucros atuais são de:<b style="color :#5093F9"> R$ ${lucroLiquidoAtual}</b><br>
@@ -264,22 +299,22 @@
         Totalizando assim um lucro final de: <b style="color: #5093F9";> R$${lucroAmbos}</b>
         `
 
-            }else if (Problema == "Escolha o problema enfrentado") {
+            } else if (Problema == "Escolha o problema enfrentado") {
                 div_text.innerHTML = `<b style="color: red"> Escolha uma alternativa valida </b>`
-            }else if (Problema == "Não sei") {
+            } else if (Problema == "Não sei") {
                 div_text.innerHTML += `
        
         A empresa  tem que seus lucros atuais são de:<b style="color :#5093F9"> R$ ${lucroLiquidoAtual}</b><br>
         Com os servicos da Innotech, e sem uma grande precisão estimamos que teriamos uma diminuição no prejuízo mensal de <b style="color: #5093F9";> 5%</b>. <br>
         Totalizando assim um lucro final de: <b style="color: #5093F9";> R$${lucroNaoSei}</b>`
             }
-        }else if (Valor1 <= 0) {
+        } else if (Valor1 <= 0) {
             div_text.innerHTML = `<b style="color: red"> Confira novamente o campo de mais barato da loja</b>`
-        }else if (Valor2 <= 0) {
+        } else if (Valor2 <= 0) {
             div_text.innerHTML = `<b style="color: red"> Confira novamente o campo de produto mais caro da loja</b>`
-        }else if (produtosFabricados <= 0) {
+        } else if (produtosFabricados <= 0) {
             div_text.innerHTML = `<b style="color: red"> Confira novamente o campo de fabricados mensalmente.</b>`
-        }else if (PerdaProdutos <= 0) {
+        } else if (PerdaProdutos <= 0) {
             div_text.innerHTML = `<b style="color: red"> Confira novamente o campo de perdidos mensalmente.</b>`
         }
     }
