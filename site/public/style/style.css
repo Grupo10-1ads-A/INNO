@@ -124,6 +124,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-bottom: 30vh;
+    justify-content: center;
     color: white;
     background-image: linear-gradient(#33415C,#33415C, #0466C8) ;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -147,11 +148,38 @@ body {
 
 .sobreN .perguntas{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     justify-content: space-evenly;
 }
 
+.sobreN .perguntas div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sobreN .perguntas h2{
+    display: flex;
+    justify-content: center;
+}
+
+.sobreN .perguntas h1{
+    padding-bottom: 9vh;
+}
+
+.sobreN .perguntas span{
+    display: flex;
+    justify-content: center;
+}
+
+.sobreN .perguntas p{
+    width: 25%;
+}
+
 .sobreN .perguntas img{
-    width: 10%;
+    width: 22%;
+    padding-left: 3vw;
 }
 
 .sobreN p {
