@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* DASHBOARD*/
+
+.geral {
+    display: flex;
+}
+
+.user{
+    background-color: #0353A4;
+    display: flex;
+    flex-direction: column;
+    width: 14%;
+    height: 100vh;
+    position: fixed;
+}
+
+.user .profile {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user .profile p{
+    color: white;
+    font-size: 2vh;   
+}
+
+.user .profile .profileIcon{
+    width: 20vh;
+    height: 20vh;
+    background-color: #5C677D;
+    border-radius: 100%;
+}
+
+.user .funcoes{
+    display: flex;
+    width: 100%;
+    flex-direction: column; 
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 5vh;
+}
+
+.user .funcoes button{
+    height: 10vh;
+    width: 100%;
+    color: white;
+    font-size: 3vh;
+    border: none;
+    background-color: #023E7D;
+}
+
+.user .funcoes button:hover{
+    transition: 1s;
+    background-color: #0466C8;
+    cursor: pointer;
+}
+
+.subContent{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tela {
+    display: flex;
+    width: 85%;
+}
+
+.tela .grafico {
+    width: 50%;
+    margin-top: 10vh;
+}
+
+.tela .grafico .descri{
+    margin: 2vw;
+}
