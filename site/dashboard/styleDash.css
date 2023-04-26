@@ -1,12 +1,30 @@
 body{
     margin: 0;
+    background-color: #5C677D;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* DASHBOARD*/
 
 .geral {
     display: flex;
+}
+
+.tela .navbar{
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tela .navbar button{
+    height: 20px;
+}
+
+.tela .navbar h1{
+    color: white;
 }
 
 .user{
@@ -33,7 +51,13 @@ body{
 .user .profile .profileIcon{
     width: 20vh;
     height: 20vh;
-    background-color: #5C677D;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.user .profile .profileIcon img{
+    width: 20vh;
+    height: 20vh;
     border-radius: 100%;
 }
 
@@ -69,14 +93,25 @@ body{
 
 .tela {
     display: flex;
+    flex-direction: column;
     width: 85%;
 }
 
 .tela .grafico {
-    width: 50%;
-    margin-top: 10vh;
+    display: flex;
+    width:  100%;
+    margin-top: 5vh;
 }
 
 .tela .grafico .descri{
-    margin: 2vw;
+    margin: 5px;
+}
+
+.tela .grafico .card{
+    width: 93%;
+    border-radius: 15px;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
