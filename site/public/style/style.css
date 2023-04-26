@@ -148,16 +148,10 @@ body {
 
 .sobreN .perguntas{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    justify-content: space-evenly;
+    flex-direction: column;
 }
 
-.sobreN .perguntas div{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
 .sobreN .perguntas h2{
     display: flex;
@@ -174,7 +168,7 @@ body {
 }
 
 .sobreN .perguntas p{
-    width: 25%;
+    width: 100%;
 }
 
 .sobreN .perguntas img{
@@ -190,6 +184,35 @@ body {
 .sobreN h1{
     display: flex;
     justify-content: center;
+}
+
+.caixa {
+    display: flex;
+    justify-content: center;
+    background-color: #979dacb6;
+    flex-direction: column;
+    height: 250px;
+    width: 620px;
+    border-radius: 8px;
+}
+
+.caixa h2 {
+    display: flex;
+    margin-left: 5px;
+}
+
+.caixa span {
+    display: flex;
+    margin-left: 5px;
+}
+
+.caixas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 70px;
+    margin-left: 70px;
+    margin-bottom: 30px;
 }
 
 .equipe {
