@@ -115,6 +115,15 @@ body {
     width: 100px;
 }
 
+.resultado {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
 .descricao_analise {
     display: flex;
     margin-left: 92px;
