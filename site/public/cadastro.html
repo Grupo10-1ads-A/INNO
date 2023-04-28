@@ -15,10 +15,10 @@
     <div class="header">
 
         <div class="container">
-            <div>           
+            <div>
                 <a href="index.html">
                     <img src="assets/icons/IN.png" alt="">
-                </a>    
+                </a>
             </div>
 
             <div class="navbar">
@@ -26,7 +26,7 @@
                     <a href="index.html">Home</a>
                 </div>
 
-                <div> 
+                <div>
                     <a href="index.html">Simulador Financeiro</a>
                 </div>
 
@@ -56,7 +56,7 @@
             <div class="#">Confirme sua Senha <br> <input class="#" type="password" id="inp_confirmSenha"
                     placeholder="******"></div><br>
 
-            <div class="#"><button onclick="cadastrar()"> cadastrar</button>
+            <div class="#"><button onclick="cadastrar()"> Cadastrar</button>
             </div>
         </div>
     </div>
@@ -71,8 +71,12 @@
         var senha_var = inp_senha.value
         var confirmSenha_var = inp_confirmSenha.value
 
-        if (nome_var != "" && email_var != "" && cpf_var != "" && senha_var != "" && confirmSenha_var != "") { window.location.href = 'login.html' }
-        else (alert("Certifique-se que todos os campos estão preenchidos."))
+        if (nome_var != "" && email_var != "" && cpf_var != "" && senha_var != "" && confirmSenha_var != "") {
+            window.location.href = 'login.html'
+        }
+        else (
+            alert("Certifique-se que todos os campos estão preenchidos.")
+        )
 
     }
 
