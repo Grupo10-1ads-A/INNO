@@ -126,3 +126,12 @@ body{
     font-size: 20px;
     text-align: center;
 }
+.navbar .botao-exit button{
+    margin-top: 8px;
+    background-image: url(../public/assets/icons/exit-botao\ 1.png);
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-color: white;
+    border-radius: 3px; 
+}
