@@ -115,3 +115,14 @@ body{
     padding: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.graficohistorico{
+    background-color: white;
+    width: 93%;
+    border-radius: 10px;
+    margin-left: 35px;
+}
+.descrihistorico{
+    color: #023E7D;
+    font-size: 20px;
+    text-align: center;
+}
