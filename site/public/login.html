@@ -137,7 +137,12 @@ function entrar() {
    
 
     function SELECT_DADOS() {
-        
+        if (emailVar == "fernanda@email.com" && senhaVar == "123456"){
+            window.location.href = 'site/dashboard/dashboard.html'
+        }
+        else {
+            alert ("Confira se os dados estão preenchidos corretamente")
+        }
      }
 
 
