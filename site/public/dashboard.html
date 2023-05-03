@@ -39,7 +39,7 @@
 
                 <div class="navbar">
 
-                    
+
 
                     <h1 id="h1_setor"></h1>
                     <div class="botao-exit">
@@ -49,6 +49,31 @@
 
                 <div id="div_campo">
                     <!-- os charts aparecem aqui -->
+                    <div class="grafico">
+
+                        <div class="card">
+                            <div class="descri">Grafico de Umidade (%)</div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <div class="descri">Grafico de Temperatura (C°)</div>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+
+                    </div>
+
+                    <div class="grafico">
+
+                        <div class="card">
+                            <div class="descri">Grafico de Umidade (%)</div>
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                        <div class="card">
+                            <div class="descri">Grafico de Temperatura (°C)</div>
+                            <canvas id="myChart4"></canvas>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -62,13 +87,235 @@
 
 
 <script>
-    function logout(){
-        window.location="../public/index.html"
+
+    h1_setor.innerHTML = "Setor 1 - Pães"
+
+
+    const ctx = document.getElementById('myChart');
+    let chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    label: 'Crítico Úmido',
+                    backgroundColor: 'rgb(255,0,0)',
+                    borderColor: 'rgb(255,0,0)',
+                    pointRadius: 0,
+                    data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
+                },
+                {
+                    label: 'Alerta Úmido',
+                    backgroundColor: 'rgb(255,255,0)',
+                    borderColor: 'rgb(255,255,0)',
+                    pointRadius: 0,
+                    data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
+                },
+                {
+                    label: 'Umidade',
+                    backgroundColor: 'rgb(53, 121, 189)',
+                    borderColor: 'rgb(53, 121, 189)',
+                    tension: 0.2,
+                    data: [54, 54, 55, 56, 56, 54, 53, 53, 52, 52.5, 54, 55, 55]
+                },
+                {
+                    label: 'Alerta Seco',
+                    backgroundColor: 'rgb(255,255,0)',
+                    borderColor: 'rgb(255,255,0)',
+                    pointRadius: 0,
+                    data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
+                },
+                {
+                    label: 'Crítico Seco',
+                    backgroundColor: 'rgb(255,0,0)',
+                    borderColor: 'rgb(255,0,0)',
+                    pointRadius: 0,
+                    data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
+                },
+
+            ],
+
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
+        },
+        options: {
+
+            scales: {
+                y: {
+                    suggestedMin: 40,
+                    suggestedMax: 65
+                }
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+    let chart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    label: 'Crítico Úmido',
+                    backgroundColor: 'rgb(255,0,0)',
+                    borderColor: 'rgb(255,0,0)',
+                    pointRadius: 0,
+                    data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
+                },
+                {
+                    label: 'Alerta Úmido',
+                    backgroundColor: 'rgb(255,255,0)',
+                    borderColor: 'rgb(255,255,0)',
+                    pointRadius: 0,
+                    data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
+                },
+                {
+                    label: 'Umidade',
+                    backgroundColor: 'rgb(53, 121, 189)',
+                    borderColor: 'rgb(53, 121, 189)',
+                    tension: 0.2,
+                    data: [52, 52, 52.5, 53, 54, 54, 54.5, 55, 55, 53, 51.9, 52, 52]
+                },
+                {
+                    label: 'Alerta Seco',
+                    backgroundColor: 'rgb(255,255,0)',
+                    borderColor: 'rgb(255,255,0)',
+                    pointRadius: 0,
+                    data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
+                },
+                {
+                    label: 'Crítico Seco',
+                    backgroundColor: 'rgb(255,0,0)',
+                    borderColor: 'rgb(255,0,0)',
+                    pointRadius: 0,
+                    data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
+                },
+
+            ],
+
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
+        },
+        options: {
+
+            scales: {
+                y: {
+                    suggestedMin: 40,
+                    suggestedMax: 65
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+    let chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Crítico Quente',
+                backgroundColor: 'rgb(255,0,0)',
+                borderColor: 'rgb(255,0,0)',
+                pointRadius: 0,
+                data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+            },
+            {
+                label: 'Alerta Quente',
+                backgroundColor: 'rgb(255,255,0)',
+                borderColor: 'rgb(255,255,0)',
+                pointRadius: 0,
+                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
+            },
+            {
+                label: 'Temperatura',
+                backgroundColor: 'rgb(53, 121, 189)',
+                borderColor: 'rgb(53, 121, 189)',
+                tension: 0.2,
+                data: [14, 15, 17, 17, 18, 18.5, 17.5, 16, 16, 14, 13, 11, 10.5]
+            },
+            {
+                label: 'Alerta Frio',
+                backgroundColor: 'rgb(255,255,0)',
+                borderColor: 'rgb(255,255,0)',
+                pointRadius: 0,
+                data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            },
+            {
+                label: 'Crítico Frio',
+                backgroundColor: 'rgb(255,0,0)',
+                borderColor: 'rgb(255,0,0)',
+                pointRadius: 0,
+                data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            }],
+
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
+        },
+        options: {
+
+            scales: {
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 30
+                }
+            }
+        }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+    let chart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Crítico Quente',
+                backgroundColor: 'rgb(255,0,0)',
+                borderColor: 'rgb(255,0,0)',
+                pointRadius: 0,
+                data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+            },
+            {
+                label: 'Alerta Quente',
+                backgroundColor: 'rgb(255,255,0)',
+                borderColor: 'rgb(255,255,0)',
+                pointRadius: 0,
+                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
+            },
+            {
+                label: 'Temperatura',
+                backgroundColor: 'rgb(53, 121, 189)',
+                borderColor: 'rgb(53, 121, 189)',
+                tension: 0.2,
+                data: [17, 17, 16, 15.5, 15, 15, 14, 15, 13, 13, 14, 14, 15]
+            },
+            {
+                label: 'Alerta Frio',
+                backgroundColor: 'rgb(255,255,0)',
+                borderColor: 'rgb(255,255,0)',
+                pointRadius: 0,
+                data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            },
+            {
+                label: 'Crítico Frio',
+                backgroundColor: 'rgb(255,0,0)',
+                borderColor: 'rgb(255,0,0)',
+                pointRadius: 0,
+                data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            }],
+
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
+        },
+        options: {
+
+            scales: {
+                y: {
+                    suggestedMin: 0,
+                    suggestedMax: 30
+                }
+            }
+        }
+    });
+
+    function logout() {
+        window.location = "../public/index.html"
     }
 
     function campo1() {
 
-        h1_setor.innerHTML="Setor 1 - Pães"
+        h1_setor.innerHTML = "Setor 1 - Pães"
 
         div_campo.innerHTML = `
         <div class="grafico">
@@ -319,7 +566,7 @@
 
     function campo2() {
 
-        h1_setor.innerHTML="Setor 2 - Bolos"
+        h1_setor.innerHTML = "Setor 2 - Bolos"
 
         div_campo.innerHTML = `
         <div class="grafico">
@@ -570,9 +817,9 @@
 
     function historico() {
 
-        h1_setor.innerHTML="Histórico - Anual"
+        h1_setor.innerHTML = "Histórico - Anual"
 
-div_campo.innerHTML = `
+        div_campo.innerHTML = `
 <div class="graficohistorico">
 
 <div class="cardhistorico">
@@ -586,32 +833,32 @@ div_campo.innerHTML = `
 `
 
         const ctx1 = document.getElementById('myChart2');
-      
-      new Chart(ctx1, {
-        type: 'bar',
-        data: {
-          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
 
-          datasets: [{
-              label: 'Temperatura',
-              data: [25, 26, 25, 23, 22, 21, 20, 20, 21, 22, 23, 24],
-              borderWidth: 1,
-              backgroundColor: "rgb(30,100,255)"
-          },{
-          label: 'Umidade',
-          data: [55, 60, 50, 59, 54, 60, 63, 55, 52, 59, 61, 49],
-          borderWidth: 1,
-          backgroundColor: "rgb(0,70,100)"
-      }]
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
 
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
+                datasets: [{
+                    label: 'Temperatura',
+                    data: [25, 26, 25, 23, 22, 21, 20, 20, 21, 22, 23, 24],
+                    borderWidth: 1,
+                    backgroundColor: "rgb(30,100,255)"
+                }, {
+                    label: 'Umidade',
+                    data: [55, 60, 50, 59, 54, 60, 63, 55, 52, 59, 61, 49],
+                    borderWidth: 1,
+                    backgroundColor: "rgb(0,70,100)"
+                }]
+
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
-          }
-        }
-      });
+        });
     }
 </script>
