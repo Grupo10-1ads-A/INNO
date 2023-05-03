@@ -208,11 +208,13 @@ select*from ideal;
 select*from dadosSensor;
 
 select*from empresa join endereco on fkEmpresa = idEmpresa; 
-select empresa.nome fantasia, endereco.rua, endereco.bairro, dadosSensor.*from 
+select empresa.nomefantasia, endereco.rua, endereco.bairro, dadosSensor.*from 
 empresa join endereco on fkEmpresa = idEmpresa 
 join sensor on fkEndereco =idEndereco 
 join dadosSensor on fkSensor=idSensor 
+-- where nomefantasia like 'neko%'
 order by dataHora;
+
 
 
 select*from endereço join sensor on fkEndereco 
