@@ -529,3 +529,66 @@ body {
     background-color: #0466C8;
     color: white;
 }
+
+/* CADASTRO NOVO */
+
+.formboxCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.cardCadastro_novo {
+    display: flex;
+    height: 600px;
+    width: 850px;
+    background-color: #979dacb6;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.coluna1 {
+    margin-left: 105px;
+    margin-top: 80px;
+}
+
+.coluna2{
+    margin-left: 60px;
+    margin-top: 1px;
+    display: inline-block;
+}
+
+.coluna3{
+    margin-left: 60px;
+    margin-top: 79px;
+    display: inline-block;
+}
+
+.cardCadastro_novo input {
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 3px;
+    border-width: 2.5px;
+    border-color: black;
+    border: solid;
+}
+
+.botao_cadastrar{
+    height: 40px;
+    width: 110px;
+    margin-left: 33px;
+    margin-top: 10px;
+    background-color: #33415C;
+    font-size: 16px;
+    font-weight: 750;
+    color: white;
+    border: none;
+}
+
+.cardCadastro_novo h1{
+    margin-left: 13px;
+    
+}
