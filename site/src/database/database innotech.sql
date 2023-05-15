@@ -75,6 +75,27 @@ insert into endereco values
 (null,'14','null','93826251','Oscar Freire','Pinheiros','São Paulo','SP','2'),
 (null,'18','null','19281263','Augusta','Jardins','São Paulo','SP','3');
 
+create table setor(
+fkEndereco int,
+idSetor int,
+nome varchar (45),
+constraint fkEndSet foreign key (fkEndereco) references endereco (idEndereco),
+constraint setorizacao primary key (fkEndereco, idSetor)
+);
+
+insert into setor values
+('1',1,'bolos'),
+('1',2,'pâes'),
+('1',3,'pães doces'),
+('2',1,'pães'),
+('2',2,'doces'),
+('3',1,'bolos'),
+('3',2,'bolos'),
+('3',3,'pães'),
+('2',3,'pães doces'),
+('4',1,'bolos'),
+('4',2,'bolos'),
+('4',3,'pães');
 
 
 create table sensor (
@@ -83,10 +104,11 @@ lugar varchar (45),
 statusSensor varchar (20),
 dtHora datetime,
 fkEndereco int,
+fkSetor int,
 fkIdeal int
 ,fkTipo int,
-constraint fkEndereco_ foreign key (fkEndereco)
-	references endereco (idEndereco),
+constraint setorizacao_de_sensores foreign key(fkEndereco,fkSetor)
+    references setor (fkEndereco,idSetor),
 constraint fkIdeal_ foreign key (fkIdeal)
 	references ideal (idIdeal),
 constraint fkTipo_ foreign key (fkTipo)
@@ -94,22 +116,22 @@ constraint fkTipo_ foreign key (fkTipo)
 );
  
 insert into sensor values
-(null,'armazem','funcionamento','2022-12-24 00:12:12',1,1,1),
-(null,'exposição1','funcionamento','2022-12-24 00:12:12',1,1,1),
-(null,'exposição2','funcionamento','2022-12-24 00:12:12',1,1,1),
-(null,'armazem2','funcionamento','2022-12-24 00:12:12',1,1,1),
-(null,'armazem','funcionamento','2022-12-24 00:12:12',2,1,1),
-(null,'exposição1','funcionamento','2022-12-24 00:12:12',2,1,1),
-(null,'exposição2','funcionamento','2022-12-24 00:12:12',2,1,1),
-(null,'armazem2','funcionamento','2022-12-24 00:12:12',2,1,1),  
-(null,'armazem','funcionamento','2022-12-24 00:12:12',3,1,1),
-(null,'exposição1','funcionamento','2022-12-24 00:12:12',3,1,1),
-(null,'exposição2','funcionamento','2022-12-24 00:12:12',3,1,1),
-(null,'armazem2','funcionamento','2022-12-24 00:12:12',3,1,1),
-(null,'armazem3','funcionamento','2022-12-24 00:12:12',4,1,1),
-(null,'exposição4','funcionamento','2022-12-24 00:12:12',4,1,1),
-(null,'armazem5','funcionamento','2022-12-24 00:12:12',4,1,1),
-(null,'armazem6','funcionamento','2022-12-24 00:12:12',4,1,1); 
+(null,'armazem','funcionamento','2022-12-24 00:12:12',1,1,1,1),
+(null,'exposição1','funcionamento','2022-12-24 00:12:12',1,1,1,1),
+(null,'exposição2','funcionamento','2022-12-24 00:12:12',1,2,1,1),
+(null,'armazem2','funcionamento','2022-12-24 00:12:12',1,3,1,1),
+(null,'armazem','funcionamento','2022-12-24 00:12:12',2,2,1,1),
+(null,'exposição1','funcionamento','2022-12-24 00:12:12',2,1,1,1),
+(null,'exposição2','funcionamento','2022-12-24 00:12:12',2,2,1,1),
+(null,'armazem2','funcionamento','2022-12-24 00:12:12',2,2,1,1),  
+(null,'armazem','funcionamento','2022-12-24 00:12:12',3,1,1,1),
+(null,'exposição1','funcionamento','2022-12-24 00:12:12',3,1,1,1),
+(null,'exposição2','funcionamento','2022-12-24 00:12:12',3,2,1,1),
+(null,'armazem2','funcionamento','2022-12-24 00:12:12',3,2,1,1),
+(null,'armazem3','funcionamento','2022-12-24 00:12:12',4,1,1,1),
+(null,'exposição4','funcionamento','2022-12-24 00:12:12',4,2,1,1),
+(null,'armazem5','funcionamento','2022-12-24 00:12:12',4,3,1,1),
+(null,'armazem6','funcionamento','2022-12-24 00:12:12',4,3,1,1); 
 
 create table dadosSensor (
 idDados int primary key auto_increment,
@@ -193,8 +215,9 @@ insert into dadosSensor values
 
 select*from usuario 
 join empresa on usuario.fkEmpresa = idEmpresa 
-join endereco on endereco.fkEmpresa =idEmpresa 
-join Sensor on sensor.fkEndereco = idEndereco
+join endereco on endereco.fkEmpresa =idEmpresa
+join setor on setor.fkEndereco = idEndereco
+join Sensor on sensor.fkSetor = idSetor
 join tipoSensor on fkTipo = idtipo
 join ideal on fkIdeal = idIdeal
 join dadosSensor on fkSensor = idSensor;
@@ -202,19 +225,20 @@ join dadosSensor on fkSensor = idSensor;
 select*from usuario;
 select*from empresa;
 select*from endereco;
+select*from setor;
 select*from sensor;
 select*from tipoSensor;
 select*from ideal;
 select*from dadosSensor;
 
-select*from empresa join endereco on fkEmpresa = idEmpresa; 
-select empresa.nomefantasia, endereco.rua, endereco.bairro, dadosSensor.*from 
+select*from empresa join endereco on fkEmpresa = idEmpresa;
+ 
+select empresa.nomefantasia, endereco.rua, setor.idSetor, setor.nome, endereco.bairro, dadosSensor.*from 
 empresa join endereco on fkEmpresa = idEmpresa 
-join sensor on fkEndereco =idEndereco 
+join setor on fkEndereco =idEndereco
+join sensor on fksetor = idsetor 
 join dadosSensor on fkSensor=idSensor 
 -- where nomefantasia like 'neko%'
 order by dataHora;
-
-
 
 select*from endereço join sensor on fkEndereco 
