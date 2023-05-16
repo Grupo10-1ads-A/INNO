@@ -44,41 +44,41 @@
         <div class="cardCadastro_novo">
             <div class="coluna1">
                 Nome: <br>
-                <input id="text" placeholder="Nome"> <br> <br> <br>
+                <input id="nome_input" placeholder="Nome"> <br> <br> <br>
                 Senha: <br>
-                <input id="text" placeholder="******" type="password"> <br> <br> <br>
+                <input id="senha_input" placeholder="******" type="password"> <br> <br> <br>
                 CNPJ: <br>
-                <input id="text" placeholder="CNPJ"> <br> <br> <br>
+                <input id="input_cnpj" placeholder="CNPJ"> <br> <br> <br>
                 CEP: <br>
-                <input id="text" placeholder="CEP"> <br> <br> <br>
+                <input id="input_cep" placeholder="CEP"> <br> <br> <br>
                 Bairro: <br>
-                <input id="text" placeholder="Bairro"> <br> <br> <br>
+                <input id="input_bairro" placeholder="Bairro"> <br> <br> <br>
             </div>
             <div class="coluna2">
                 <h1>Cadastro</h1>
                 E-mail: <br>
-                <input id="text" placeholder="E-mail"> <br> <br> <br>
+                <input id="email_input" placeholder="E-mail"> <br> <br> <br>
                 Nome Empresarial: <br>
-                <input id="text" placeholder="Nome Empresarial"> <br> <br> <br>
+                <input id="input_nome_empresa" placeholder="Nome Empresarial"> <br> <br> <br>
                 E-mail Empresarial: <br>
-                <input id="text" placeholder="E-mail Empresarial"> <br> <br> <br>
+                <input id="input_email_empresa" placeholder="E-mail Empresarial"> <br> <br> <br>
                 Logradouro: <br>
-                <input id="text" placeholder="Logradouro"> <br> <br> <br>
+                <input id="input_logadouro" placeholder="Logradouro"> <br> <br> <br>
                 Cidade: <br>
-                <input id="text" placeholder="Cidade"> <br> <br>
+                <input id="input_cidade" placeholder="Cidade"> <br> <br>
                 <button class="botao_cadastrar">Cadastrar</button>
             </div>
             <div class="coluna3">
                 CPF: <br>
-                <input id="text" placeholder="CPF"> <br> <br> <br>
+                <input id="input_cpf" placeholder="CPF"> <br> <br> <br>
                 Nome Fantasia: <br>
-                <input id="text" placeholder="Nome Fantasia"> <br> <br> <br>
+                <input id="input_nome_fantasia" placeholder="Nome Fantasia"> <br> <br> <br>
                 Telefone: <br>
-                <input id="text" placeholder="Telefone"> <br> <br> <br>
+                <input id="input_telefone" placeholder="Telefone"> <br> <br> <br>
                 Número: <br>
-                <input id="text" placeholder="Número"> <br> <br> <br>
+                <input id="input_numero" placeholder="Número"> <br> <br> <br>
                 Estado: <br>
-                <input id="text" placeholder="Estado"> <br> <br> <br>
+                <input id="input_estado" placeholder="Estado"> <br> <br> <br>
             </div>
         </div>
     </div>
@@ -86,3 +86,94 @@
 </body>
 
 </html>
+<script>
+    function cadastrar() {
+        
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var cnpjVar = input_cnpj.value;
+        var cepVar = input_cep.value;
+        var bairroVar = input_bairro.value;
+        var nomeEmpresaVar = input_nome_empresa.value;
+        var email_empresaVar = input_email_empresa.value;
+        var logadouroVar = input_logadouro.value;
+        var cidadeVar = input_cidade.value;
+        var cpfVar = input_cpf.value;
+        var nomeFantasiaVar = input_nome_fantasia.value;
+        var telefoneVar = input_telefone.value;
+        var numeroVar = input_numero.value;
+        var estadoVar = input_estado.value;
+    
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || cepVar == "" || bairroVar == "" || nomeEmpresaVar == ""
+            || email_empresaVar == "" || logadouroVar == "" || cidadeVar == "" || cpfVar == "" || nomeFantasiaVar == "" || telefoneVar == ""
+            || numeroVar == "" || estadoVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                cnpjServer: cnpjVar,
+                cepServer: cepVar,
+                bairroServer: bairroVar,
+                nomeEmpresaServer: nomeEmpresaVar,
+                email_empresaServer: email_empresaVar,
+                logadouroServer: logadouroVar,
+                cidadeServer: cidadeVar,
+                cpfServer: cpfVar,
+                nomeFantasiaServer: nomeFantasiaVar,
+                telefoneServer: telefoneVar,
+                numeroServer: numeroVar,
+                estadoServer: estadoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
