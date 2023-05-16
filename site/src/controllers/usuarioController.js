@@ -64,13 +64,22 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var nomeFantasia = req.body.nomeFantasiaServer;
+    var nomeEmpresa = req.body.nomeEmpresaServer;
     var cnpj = req.body.cnpjServer;
     var email = req.body.emailServer;
+    var email_empresa = req.body.email_empresaServer;
     var cep = req.body.cepServer;
     var rua = req.body.ruaServer;
     var bairro = req.body.bairroServer;
     var cidade = req.body.cidadeServer;
-    var estado = req.body.esatdoServer;
+    var estado = req.body.estadoServer;
+    var telefone = req.body.telefoneServer;
+    var logradouro = req.body.logradouroServer;
+    var cpf = req.body.cpfServer;
+    var numero = req.body.numeroServer;
+    var senha = req.body.senhaServer;
+    
+
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -91,10 +100,20 @@ function cadastrar(req, res) {
         res.status(400).send("Sua cidade está undefined!")
     }else if (estado == undefined){
         res.status(400).send("Seu estado está undefined!")
+    }else if (telefone == undefined){
+        res.status(400).send("Seu telefone está undefined!")
+    }else if (logradouro == undefined){
+        res.status(400).send("Seu logradouro está undefined!")
+    }else if (numero == undefined){
+        res.status(400).send("Seu numero está undefined!")
+    }else if (email_empresa == undefined){
+        res.status(400).send("Seu email empresarial está undefined!")
+    }else if (nomeEmpresa == undefined){
+        res.status(400).send("Seu nome empresarial está undefined!")
     }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, cpf, senha, nome)
+        usuarioModel.cadastrar(nome, email, cpf, senha, nomeFantasia, cep, rua, bairro, cidade, estado, telefone, logradouro, numero, email_empresa, nomeEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);
