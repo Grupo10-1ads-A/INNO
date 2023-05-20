@@ -51,6 +51,11 @@
 
             <div class="#">CPF <br><input id="inp_cpf" placeholder="**********"></div><br>
 
+            <div class="#">Cell<br><input id="inp_tell" placeholder="-- --------"></div><br>
+
+            <div class="#">Supervisor<br> <input id="inp_lider" placeholder="Opicional"></div><br>
+
+
             <div class="#">Senha <br> <input class="#" type="password" id="inp_senha" placeholder="******"></div><br>
 
             <div class="#">Confirme sua Senha <br> <input class="#" type="password" id="inp_confirmSenha"
@@ -70,6 +75,8 @@
         var cpf_var = inp_cpf.value
         var senha_var = inp_senha.value
         var confirmSenha_var = inp_confirmSenha.value
+        var tellVar = inp_tell
+        var liderVar=inp_lider
 
         if (nome_var != "" && email_var != "" && cpf_var != "" && senha_var != "" && confirmSenha_var != "") {
             window.location.href = 'cadastro_empresa.html'
@@ -77,6 +84,42 @@
         else (
             alert("Certifique-se que todos os campos estão preenchidos.")
         )
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                cpfServer: cpfVar,
+                senhaServer: senhaVar,
+                tellServer: tellVar,
+                liderServer:liderVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
 
     }
 
@@ -106,44 +149,7 @@
 //             setInterval(sumirMensagem, 5000)
 //         }
 
-//         // Enviando o valor da nova input
-//         fetch("/usuarios/cadastrar", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({
-//                 // crie um atributo que recebe o valor recuperado aqui
-//                 // Agora vá para o arquivo routes/usuario.js
-//                 nomeServer: nomeVar,
-//                 emailServer: emailVar,
-//                 cpfServer: cpfVar,
-//                 senhaServer: senhaVar
-//             })
-//         }).then(function (resposta) {
 
-//             console.log("resposta: ", resposta);
-
-//             if (resposta.ok) {
-//                 cardErro.style.display = "block";
-
-//                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-//                 setTimeout(() => {
-//                     window.location = "login.html";
-//                 }, "2000")
-
-//                 limparFormulario();
-//                 finalizarAguardar();
-//             } else {
-//                 throw ("Houve um erro ao tentar realizar o cadastro!");
-//             }
-//         }).catch(function (resposta) {
-//             console.log(`#ERRO: ${resposta}`);
-//             finalizarAguardar();
-//         });
-
-//         return false;
 //     }
 
 //     function sumirMensagem() {

@@ -61,7 +61,7 @@ idEndereco int primary key auto_increment,
 numero int,
 complemento varchar (30),
 CEP char (8),
-rua varchar (45),
+logradouro varchar(45),
 bairro varchar (45),
 cidade varchar (45),
 estado char (2),
@@ -70,10 +70,10 @@ constraint fkEmpresa2 foreign key (fkEmpresa)
 	references empresa (idEmpresa));
 
 insert into endereco values
-(null,'12','null','32619874','Paulista','Bela Vista','São Paulo','SP','1'),
-(null,'24','null','32619874','Paulista','Bela Vista','São Paulo','SP','3'),
-(null,'14','null','93826251','Oscar Freire','Pinheiros','São Paulo','SP','2'),
-(null,'18','null','19281263','Augusta','Jardins','São Paulo','SP','3');
+(null,'12','null','32619874','null','Bela Vista','São Paulo','SP','1'),
+(null,'24','null','32619874','null','Bela Vista','São Paulo','SP','3'),
+(null,'14','null','93826251','null','Pinheiros','São Paulo','SP','2'),
+(null,'18','null','19281263','null','Jardins','São Paulo','SP','3');
 
 create table setor(
 fkEndereco int,
