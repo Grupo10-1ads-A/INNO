@@ -18,8 +18,8 @@ insert  into empresa values
 create table usuario (
 idUsuario int primary key auto_increment,
 nomeU varchar (50),
-sobrenome varchar (50),
 email varchar (50),
+cpf char(11),
 senha varchar (50),
 tel char (14),
 fkEmpresa int,
@@ -30,17 +30,17 @@ constraint fkLider foreign key (fkLider)
 	references usuario (idUsuario)
 );
 insert into usuario values
-(null,'Violeta','Jardins','@gmail.com','1212','(11) 1212-1212',3,null),
-(null,'Gabriel','Yo','@gmail.com','3242','(11) 4442-5647',3,1),
-(null,'Samuel','Anthonien','@gmail.com','23423','(11) 1546-1647',2,null),
-(null,'Safira','Red','@gmail.com','12341','(11) 4325-1232',1,null);
+(null,'Violeta','Jardins','vio@gmail.com','1212','(11) 1212-1212',3,null),
+(null,'Gabriel','Yo','ga@gmail.com','3242','(11) 4442-5647',3,1),
+(null,'Samuel','Anthonien','sa@gmail.com','23423','(11) 1546-1647',2,null),
+(null,'Safira','Red','saf@gmail.com','12341','(11) 4325-1232',1,null);
 
 create table TipoSensor (
 idTipo int primary key auto_increment,
 nome varchar (30)
 );
 
-insert into tipoSensor values
+insert into TipoSensor values
 (null,'dht11');
 
 create table ideal (
@@ -221,6 +221,7 @@ join Sensor on sensor.fkSetor = idSetor
 join tipoSensor on fkTipo = idtipo
 join ideal on fkIdeal = idIdeal
 join dadosSensor on fkSensor = idSensor;
+
 
 select*from usuario;
 select*from empresa;
