@@ -464,19 +464,36 @@ body {
     border: solid;
 }
 
-.cardCadastroEmpresa .botao button {
+.cardCadastroEmpresa .botao{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     height: 30px;
-    width: 100px;
-    background-color: #33415C;
+    width: 100%;
+    /* background-color: #33415C; */
     font-weight: 750;
     color: white;
     border: none;
-
-}
+    /* margin-left: 16px;
+    margin-top: 43px; */
+} 
+.cardCadastroEmpresa .botao button{
+    border-radius: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 39px;
+    width: 158px;
+    background-color: #33415C; 
+    font-weight: 750;
+    color: white;
+    border: none;
+    /* margin-left: 16px;*/
+    margin-top: 43px; 
+} 
 
 /*calculadora*/
 
