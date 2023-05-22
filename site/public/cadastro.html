@@ -82,12 +82,7 @@
           </div>
           
 
-          <div class="#">
-            <p>
-              Supervisor
-            </p>
-            <input id="inp_lider" placeholder="Opcional" />
-          </div>
+
           
 
           <div class="#">
@@ -131,7 +126,7 @@
         var senhaVar = inp_senha.value
         var confirmSenhaVar = inp_confirmSenha.value
         var tellVar = inp_tell.value
-        var liderVar=inp_lider.value
+       
 
         if (nomeVar != "" && emailVar != "" && cpfVar != "" && senhaVar != "" && confirmSenhaVar != "") {
             
@@ -153,7 +148,7 @@
                 cpfServer: cpfVar,
                 senhaServer: senhaVar,
                 tellServer: tellVar,
-                liderServer:liderVar
+               
             })
         }).then(function (resposta) {
 
