@@ -19,7 +19,7 @@ function cadastrarEndereco(numero,complemento,cep,logradouro,bairro,cidade,estad
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO endereco (numero,complemento,cep,logradouro,bairro,cidade,estado,fkEmpresa) VALUES ('${numero}','${complemento}','${cep}','${logradouro}','${bairro}','${cidade}','${estado}',(SELECT idEmpresa from empresa where cnpj = '${cnpj}' AND nome ='${nomeEmpresarial}'));
+        INSERT INTO endereco (numero,complemento,cep,logradouro,bairro,cidade,estado,fkEmpresa) VALUES ('${numero}','${complemento}','${cep}','${logradouro}','${bairro}','${cidade}','${estado}',(SELECT idEmpresa from empresa where cnpj = ${cnpj} AND nome = '${nomeEmpresarial}'));
         `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

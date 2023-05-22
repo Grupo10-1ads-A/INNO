@@ -63,6 +63,9 @@
                 <div>Logradouro <br> <input id="logradouro_input"></div> <br>
 
                 <div>Número <br> <input id="numero_input"> </div> <br>
+                <div class="botao">
+                    <button onclick="confirmar_cadastro()">Confirmar</button>
+                </div>
             </div>
 
             <div class="cadastroEndereco">
@@ -74,9 +77,6 @@
 
                 <div>Estado <br> <input id="estado_input"></div> <br>
 
-            </div>
-            <div class="botao">
-                <button onclick="confirmar_cadastro()">Confirmar</button>
             </div>
         </div>
 
@@ -162,7 +162,7 @@
                         console.log("resposta: ", resposta);
 
                         if (resposta.ok) {
-                            mensagem_erro.innerHTML = "Cadastro do endereço realizado com sucesso! Redirecionando para tela de cadastro de endereço...";
+                            console.log("Cadastro do endereço realizado com sucesso! Redirecionando para tela de cadastro de endereço...");
                         
                           setTimeout(function agora_é_o_usuario() {
                             window.location.href = 'cadastro.html'
