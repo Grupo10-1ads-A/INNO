@@ -64,6 +64,7 @@ body {
     height: 50vh;
     background-image: url(../assets/back-ground/back-ground-login.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     background-color: #001233;
     color: white;
 }
@@ -304,7 +305,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 0px;
+    height: 80vh;
 }
 
 .card {
@@ -369,20 +371,46 @@ body {
 
 /* CADASTRO */
 
+.texto-cadastro {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+}
+
 .formboxCadastro {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px;
+    margin-top: 0;
+}
+
+.elements{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.elements .dados1 {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.elements .dados2 {
+    display: flex;
+    flex-direction: column;
+    
+
 }
 
 .cardCadastro {
+    width: 500px;
+    height: 500px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 530px;
-    width: 400px;
     margin-top: 1px;
     background-color: #979dacb6;
     border-radius: 10px;
@@ -401,13 +429,16 @@ body {
 }
 
 .cardCadastro button {
-    height: 30px;
+    height: 40px;
     width: 100px;
     background-color: #33415C;
-    font-weight: 750;
+    font-weight: 800;
     color: white;
     border: none;
+}
 
+.butao {
+    margin-top: 10px;
 }
 
 /* CADASTRO EMPRESA */
