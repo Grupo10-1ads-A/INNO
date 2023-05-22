@@ -50,7 +50,7 @@ function cadastrarEndereco(req, res) {
     var cidade = req.body.cidadeServer
     var estado = req.body.estadoServer
     var cnpj = req.body.cnpjServer;
-    var nomeEmpresarial = req.body.nome_empresarialServer;
+    var nomeEmpresarial = req.body.nomeEmpresarialServer;
 
     // Faça as validações dos valores
     if (nomeEmpresarial == undefined) {
