@@ -1,85 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoldTech/cadastro</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" />
     <script src="./js/funcoes.js"></script>
-    <link rel="icon" href="assets/icons/IN.png">
-</head>
+    <link rel="icon" href="assets/icons/IN.png" />
+  </head>
 
-<body class="bodyCadastroLogin">
+  <body class="bodyCadastroLogin">
     <div class="header">
-
-        <div class="container">
-            <div>
-                <a href="index.html">
-                    <img src="assets/icons/IN.png" alt="">
-                </a>
-            </div>
-
-            <div class="navbar">
-                <div>
-                    <a href="index.html">Home</a>
-                </div>
-
-                <div>
-                    <a href="index.html">Simulador Financeiro</a>
-                </div>
-
-                <div>
-                    <a href="login.html">Login</a>
-                </div>
-
-                <div>
-                    <button onclick="pagina_cadastro()">Cadastro</button>
-                </div>
-
-            </div>
+      <div class="container">
+        <div>
+          <a href="index.html">
+            <img src="assets/icons/IN.png" alt="" />
+          </a>
         </div>
+
+        <div class="navbar">
+          <div>
+            <a href="index.html">Home</a>
+          </div>
+
+          <div>
+            <a href="index.html">Simulador Financeiro</a>
+          </div>
+
+          <div>
+            <a href="login.html">Login</a>
+          </div>
+
+          <div>
+            <button onclick="pagina_cadastro()">Cadastro</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="formboxCadastro">
-        <div class="cardCadastro">
-            <h1>Cadastro</h1>
-            <div class="#">Nome <br> <input id="inp_Nome" placeholder="Nome"></div><br>
 
-            <div class="#">E-mail <br> <input class="#" id="inp_email" placeholder="E-mail"></div><br>
+      <div class="cardCadastro">
 
-            <div class="#">CPF <br><input id="inp_cpf" placeholder="**********"></div><br>
-
-            <div class="#">Cell<br><input id="inp_tell" placeholder="-- --------"></div><br>
-
-            <div class="#">Supervisor<br> <input id="inp_lider" placeholder="Opicional"></div><br>
-
-
-            <div class="#">Senha <br> <input class="#" type="password" id="inp_senha" placeholder="******"></div><br>
-
-            <div class="#">Confirme sua Senha <br> <input class="#" type="password" id="inp_confirmSenha"
-                    placeholder="******"></div><br>
-
-            <div class="#"><button onclick="cadastrar()"> Cadastrar</button>
-            </div>
+        <div class="texto-cadastro">
+          <h1>Cadastro</h1>
         </div>
-    </div>
-</body>
+        <div class="elements">
 
+        
+        <div class="dados1">
+          <div class="#">
+            <p>
+              Nome
+            </p>
+            <input id="inp_Nome" placeholder="Nome" />
+          </div>
+          
+
+          <div class="#">
+            <p>
+              E-mail
+            </p>
+            <input class="#" id="inp_email" placeholder="E-mail" />
+          </div>
+          
+
+          <div class="#">
+            <p>
+              CPF 
+            </p>
+            <input id="inp_cpf" placeholder="**********" />
+          </div>
+        </div>
+        <div class="dados2">
+          <div class="#">
+            <p>
+              Cell
+            </p>
+            <input id="inp_tell" placeholder="0000-0000" />
+          </div>
+          
+
+
+          
+
+          <div class="#">
+            <p>
+              Senha
+            </p>
+            <input
+              class="#"
+              type="password"
+              id="inp_senha"
+              placeholder="******"
+            />
+          </div>
+          
+
+          <div class="#">
+            <p>
+              Confirme sua Senha
+            </p>
+            <input
+              class="#"
+              type="password"
+              id="inp_confirmSenha"
+              placeholder="******"
+            />
+          </div>
+          
+        </div>
+      </div>
+        <div class="butao"><button onclick="cadastrar()">Cadastrar</button></div>
+      </div>
+    </div>
+  </body>
 </html>
 <script>
-    function cadastrar() {
-        var nome_var = inp_Nome.value
-        var email_var = inp_email.value
-        var cpf_var = inp_cpf.value
-        var senha_var = inp_senha.value
-        var confirmSenha_var = inp_confirmSenha.value
-        var tellVar = inp_tell
-        var liderVar=inp_lider
 
-        if (nome_var != "" && email_var != "" && cpf_var != "" && senha_var != "" && confirmSenha_var != "") {
-            window.location.href = 'cadastro_empresa.html'
+    function cadastrar() {
+        var nomeVar = inp_Nome.value
+        var emailVar = inp_email.value
+        var cpfVar = inp_cpf.value
+        var senhaVar = inp_senha.value
+        var confirmSenhaVar = inp_confirmSenha.value
+        var tellVar = inp_tell.value
+       
+
+        if (nomeVar != "" && emailVar != "" && cpfVar != "" && senhaVar != "" && confirmSenhaVar != "") {
+            
         }
         else (
             alert("Certifique-se que todos os campos estão preenchidos.")
@@ -98,15 +148,14 @@
                 cpfServer: cpfVar,
                 senhaServer: senhaVar,
                 tellServer: tellVar,
-                liderServer:liderVar
+               
             })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+            
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
@@ -127,33 +176,90 @@
 
 
 
-// function cadastrar() {
-//         aguardar();
-
-//         //Recupere o valor da nova input pelo nome do id
-//         // Agora vá para o método fetch logo abaixo
-//         var nomeVar = inp_Nome.value;
-//         var emailVar = inp_email.value;
-//         var cpfVar = inp_cpf.value;
-//         var senhaVar = inp_senha.value;
-//         var confirmacaoSenhaVar = inp_confirmSenha.value;
-
-//         if (nomeVar == "" || emailVar == "" || cpfVar == ""|| senhaVar == "" || confirmacaoSenhaVar == "") {
-//             cardErro.style.display = "block"
-//             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-//             finalizarAguardar();
-//             return false;
-//         }
-//         else {
-//             setInterval(sumirMensagem, 5000)
-//         }
-
-
-//     }
-
-//     function sumirMensagem() {
-//         cardErro.style.display = "none"
-//     }   
-
 </script>
+<!-- ======= -->
+  <!-- function cadastrar() {
+    var nome_var = inp_Nome.value;
+    var email_var = inp_email.value;
+    var cpf_var = inp_cpf.value;
+    var senha_var = inp_senha.value;
+    var confirmSenha_var = inp_confirmSenha.value;
+    var tellVar = inp_tell;
+    var liderVar = inp_lider;
+
+    if (
+      nome_var != "" &&
+      email_var != "" &&
+      cpf_var != "" &&
+      senha_var != "" &&
+      confirmSenha_var != ""
+    ) {
+      window.location.href = "cadastro_empresa.html";
+    } else alert("Certifique-se que todos os campos estão preenchidos.");
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        cpfServer: cpfVar,
+        senhaServer: senhaVar,
+        tellServer: tellVar,
+        liderServer: liderVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+  // function cadastrar() {
+  //         aguardar();
+
+  //         //Recupere o valor da nova input pelo nome do id
+  //         // Agora vá para o método fetch logo abaixo
+  //         var nomeVar = inp_Nome.value;
+  //         var emailVar = inp_email.value;
+  //         var cpfVar = inp_cpf.value;
+  //         var senhaVar = inp_senha.value;
+  //         var confirmacaoSenhaVar = inp_confirmSenha.value;
+
+  //         if (nomeVar == "" || emailVar == "" || cpfVar == ""|| senhaVar == "" || confirmacaoSenhaVar == "") {
+  //             cardErro.style.display = "block"
+  //             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+  //             finalizarAguardar();
+  //             return false;
+  //         }
+  //         else {
+  //             setInterval(sumirMensagem, 5000)
+  //         }
+
+  //     }
+
+  //     function sumirMensagem() {
+  //         cardErro.style.display = "none"
+  //     }
+</script>
+>>>>>>> edb56453e0cba5ca370755a5fea0061ee0f29f78 -->

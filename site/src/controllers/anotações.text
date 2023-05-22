@@ -10,7 +10,7 @@
          erros.        
    
    
-   
+   INSERT INTO endereco (numero,complemento,cep,logradouro,bairro,cidade,estado,fkEmpresa) VALUES ('133','','04849190','','assjdkjad','Sâo Paulo','SP',(SELECT idEmpresa from empresa where cnpj = '12345678901111' AND nome ='dadsfadsf'));
    
    
    
