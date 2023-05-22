@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -32,21 +32,66 @@
                 </button>
             </div>
         </div>
+        
 
         <div class="subContent">
 
             <div class="tela" id="div_tela">
-
                 <div class="navbar">
-
-
-
-                    <h1 id="h1_setor"></h1>
-                    <div class="botao-exit">
-                        <button onclick="logout()"></button>
+                    <div class="alertas">
+                    <h2 class="titulo-temperatura">Alertas Temperatura:</h2>
+                    <div class="alertas-temperatura">
+                            <div class="perigo-frio">
+                                <h4>Perigo Frio</h4>
+                                <h2>5°C ou menos</h2>
+                            </div>
+                            <div class="alerta-frio">
+                                <h4>Alerta Frio</h4>
+                                <h2>de 6°C a 9°C</h2>
+                            </div>
+                            <div class="ideal">
+                                <h4>Ideal</h4>
+                                <h2>de 10°C a 18°C</h2>
+                            </div>
+                            <div class="alerta-quente">
+                                <h4>Alerta Quente</h4>
+                                <h2>de 19°C a 24°C</h2>
+                            </div>
+                            <div class="perigo-quente">
+                                <h4>Perigo Quente</h4>
+                                <h2>25°C ou mais</h2>
+                            </div>
+                    </div> 
+                    <h2 class="titulo-umidade">Alertas Umidade:</h2>
+                    <div class="alertas-umidade">
+                            <div class="perigo-frio">
+                                <h4>Perigo Frio</h4>
+                                <h2>5°C ou menos</h2>
+                            </div>
+                            <div class="alerta-frio">
+                                <h4>Alerta Frio</h4>
+                                <h2>de 6°C a 9°C</h2>
+                            </div>
+                            <div class="ideal">
+                                <h4>Ideal</h4>
+                                <h2>de 10°C a 18°C</h2>
+                            </div>
+                            <div class="alerta-quente">
+                                <h4>Alerta Quente</h4>
+                                <h2>de 19°C a 24°C</h2>
+                            </div>
+                            <div class="perigo-quente">
+                                <h4>Perigo Quente</h4>
+                                <h2>25°C ou mais</h2>
+                            </div>
+                        </div> 
                     </div>
                 </div>
-
+                
+                <h1 id="h1_setor"></h1>
+                <div class="botao-exit">
+                    <button onclick="logout()"></button>
+                </div>
                 <div id="div_campo">
                     <!-- os charts aparecem aqui -->
                     <div class="grafico">
@@ -96,20 +141,20 @@
         type: 'line',
         data: {
             datasets: [
-                {
-                    label: 'Crítico Úmido',
-                    backgroundColor: 'rgb(255,0,0)',
-                    borderColor: 'rgb(255,0,0)',
-                    pointRadius: 0,
-                    data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
-                },
-                {
-                    label: 'Alerta Úmido',
-                    backgroundColor: 'rgb(255,255,0)',
-                    borderColor: 'rgb(255,255,0)',
-                    pointRadius: 0,
-                    data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
-                },
+                // {
+                //     label: 'Crítico Úmido',
+                //     backgroundColor: 'rgb(255,0,0)',
+                //     borderColor: 'rgb(255,0,0)',
+                //     pointRadius: 0,
+                //     data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
+                // },
+                // {
+                //     label: 'Alerta Úmido',
+                //     backgroundColor: 'rgb(255,255,0)',
+                //     borderColor: 'rgb(255,255,0)',
+                //     pointRadius: 0,
+                //     data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
+                // },
                 {
                     label: 'Umidade',
                     backgroundColor: 'rgb(53, 121, 189)',
@@ -117,20 +162,20 @@
                     tension: 0.2,
                     data: [54, 54, 55, 56, 56, 54, 53, 53, 52, 52.5, 54, 55, 55]
                 },
-                {
-                    label: 'Alerta Seco',
-                    backgroundColor: 'rgb(255,255,0)',
-                    borderColor: 'rgb(255,255,0)',
-                    pointRadius: 0,
-                    data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
-                },
-                {
-                    label: 'Crítico Seco',
-                    backgroundColor: 'rgb(255,0,0)',
-                    borderColor: 'rgb(255,0,0)',
-                    pointRadius: 0,
-                    data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
-                },
+                // {
+                //     label: 'Alerta Seco',
+                //     backgroundColor: 'rgb(255,255,0)',
+                //     borderColor: 'rgb(255,255,0)',
+                //     pointRadius: 0,
+                //     data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
+                // },
+                // {
+                //     label: 'Crítico Seco',
+                //     backgroundColor: 'rgb(255,0,0)',
+                //     borderColor: 'rgb(255,0,0)',
+                //     pointRadius: 0,
+                //     data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
+                // },
 
             ],
 
@@ -152,41 +197,41 @@
         type: 'line',
         data: {
             datasets: [
-                {
-                    label: 'Crítico Úmido',
-                    backgroundColor: 'rgb(255,0,0)',
-                    borderColor: 'rgb(255,0,0)',
-                    pointRadius: 0,
-                    data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
-                },
-                {
-                    label: 'Alerta Úmido',
-                    backgroundColor: 'rgb(255,255,0)',
-                    borderColor: 'rgb(255,255,0)',
-                    pointRadius: 0,
-                    data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
-                },
+                // {
+                //     label: 'Crítico Úmido',
+                //     backgroundColor: 'rgb(255,0,0)',
+                //     borderColor: 'rgb(255,0,0)',
+                //     pointRadius: 0,
+                //     data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60,]
+                // },
+                // {
+                //     label: 'Alerta Úmido',
+                //     backgroundColor: 'rgb(255,255,0)',
+                //     borderColor: 'rgb(255,255,0)',
+                //     pointRadius: 0,
+                //     data: [56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5, 56.5]
+                // },
                 {
                     label: 'Umidade',
                     backgroundColor: 'rgb(53, 121, 189)',
                     borderColor: 'rgb(53, 121, 189)',
                     tension: 0.2,
                     data: [52, 52, 52.5, 53, 54, 54, 54.5, 55, 55, 53, 51.9, 52, 52]
-                },
-                {
-                    label: 'Alerta Seco',
-                    backgroundColor: 'rgb(255,255,0)',
-                    borderColor: 'rgb(255,255,0)',
-                    pointRadius: 0,
-                    data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
-                },
-                {
-                    label: 'Crítico Seco',
-                    backgroundColor: 'rgb(255,0,0)',
-                    borderColor: 'rgb(255,0,0)',
-                    pointRadius: 0,
-                    data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
-                },
+                } //,
+                // {
+                //     label: 'Alerta Seco',
+                //     backgroundColor: 'rgb(255,255,0)',
+                //     borderColor: 'rgb(255,255,0)',
+                //     pointRadius: 0,
+                //     data: [51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5, 51.5]
+                // },
+                // {
+                //     label: 'Crítico Seco',
+                //     backgroundColor: 'rgb(255,0,0)',
+                //     borderColor: 'rgb(255,0,0)',
+                //     pointRadius: 0,
+                //     data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,]
+                // },
 
             ],
 
@@ -207,41 +252,42 @@
     let chart2 = new Chart(ctx2, {
         type: 'line',
         data: {
-            datasets: [{
-                label: 'Crítico Quente',
-                backgroundColor: 'rgb(255,0,0)',
-                borderColor: 'rgb(255,0,0)',
-                pointRadius: 0,
-                data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
-            },
-            {
-                label: 'Alerta Quente',
-                backgroundColor: 'rgb(255,255,0)',
-                borderColor: 'rgb(255,255,0)',
-                pointRadius: 0,
-                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
-            },
+            datasets: [//{
+            //     label: 'Crítico Quente',
+            //     backgroundColor: 'rgb(255,0,0)',
+            //     borderColor: 'rgb(255,0,0)',
+            //     pointRadius: 0,
+            //     data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+            // },
+            // {
+            //     label: 'Alerta Quente',
+            //     backgroundColor: 'rgb(255,255,0)',
+            //     borderColor: 'rgb(255,255,0)',
+            //     pointRadius: 0,
+            //     data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
+            // },
             {
                 label: 'Temperatura',
                 backgroundColor: 'rgb(53, 121, 189)',
                 borderColor: 'rgb(53, 121, 189)',
                 tension: 0.2,
                 data: [14, 15, 17, 17, 18, 18.5, 17.5, 16, 16, 14, 13, 11, 10.5]
-            },
-            {
-                label: 'Alerta Frio',
-                backgroundColor: 'rgb(255,255,0)',
-                borderColor: 'rgb(255,255,0)',
-                pointRadius: 0,
-                data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
-            },
-            {
-                label: 'Crítico Frio',
-                backgroundColor: 'rgb(255,0,0)',
-                borderColor: 'rgb(255,0,0)',
-                pointRadius: 0,
-                data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-            }],
+            }//,
+            // {
+            //     label: 'Alerta Frio',
+            //     backgroundColor: 'rgb(255,255,0)',
+            //     borderColor: 'rgb(255,255,0)',
+            //     pointRadius: 0,
+            //     data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            // },
+            // {
+            //     label: 'Crítico Frio',
+            //     backgroundColor: 'rgb(255,0,0)',
+            //     borderColor: 'rgb(255,0,0)',
+            //     pointRadius: 0,
+            //     data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            // }
+        ],
 
             labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
         },
@@ -260,41 +306,42 @@
     let chart4 = new Chart(ctx4, {
         type: 'line',
         data: {
-            datasets: [{
-                label: 'Crítico Quente',
-                backgroundColor: 'rgb(255,0,0)',
-                borderColor: 'rgb(255,0,0)',
-                pointRadius: 0,
-                data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
-            },
-            {
-                label: 'Alerta Quente',
-                backgroundColor: 'rgb(255,255,0)',
-                borderColor: 'rgb(255,255,0)',
-                pointRadius: 0,
-                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
-            },
+            datasets: [//{
+            //     label: 'Crítico Quente',
+            //     backgroundColor: 'rgb(255,0,0)',
+            //     borderColor: 'rgb(255,0,0)',
+            //     pointRadius: 0,
+            //     data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+            // },
+            // {
+            //     label: 'Alerta Quente',
+            //     backgroundColor: 'rgb(255,255,0)',
+            //     borderColor: 'rgb(255,255,0)',
+            //     pointRadius: 0,
+            //     data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
+            // },
             {
                 label: 'Temperatura',
                 backgroundColor: 'rgb(53, 121, 189)',
                 borderColor: 'rgb(53, 121, 189)',
                 tension: 0.2,
                 data: [17, 17, 16, 15.5, 15, 15, 14, 15, 13, 13, 14, 14, 15]
-            },
-            {
-                label: 'Alerta Frio',
-                backgroundColor: 'rgb(255,255,0)',
-                borderColor: 'rgb(255,255,0)',
-                pointRadius: 0,
-                data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
-            },
-            {
-                label: 'Crítico Frio',
-                backgroundColor: 'rgb(255,0,0)',
-                borderColor: 'rgb(255,0,0)',
-                pointRadius: 0,
-                data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-            }],
+            // },
+            // {
+            //     label: 'Alerta Frio',
+            //     backgroundColor: 'rgb(255,255,0)',
+            //     borderColor: 'rgb(255,255,0)',
+            //     pointRadius: 0,
+            //     data: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            // },
+            // {
+            //     label: 'Crítico Frio',
+            //     backgroundColor: 'rgb(255,0,0)',
+            //     borderColor: 'rgb(255,0,0)',
+            //     pointRadius: 0,
+            //     data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+            // 
+        }],
 
             labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00']
         },
