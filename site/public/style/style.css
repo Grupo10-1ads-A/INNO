@@ -6,6 +6,22 @@ body {
 
 }
 
+.help {
+    margin-left: 90vw;
+    margin-top: 80vh;
+    position: fixed;
+}
+
+.help a{    
+    width: 100%;
+    padding-right: 2vh;
+    padding-bottom: 2vh;
+}
+
+.help img{
+    width: 65%;
+}
+
 .container {
     width: 95%;
     margin: auto;
