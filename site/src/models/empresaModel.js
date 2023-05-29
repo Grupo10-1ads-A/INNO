@@ -26,6 +26,18 @@ function cadastrarEndereco(numero,complemento,cep,logradouro,bairro,cidade,estad
 
 }
 
+function verificarEmpresa(nomeEmpresarial,nomeFantasia,cnpj,emailEmpresa) {
+    console.log("ACESSEI O EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarEmpresa():", nomeEmpresarial,nomeFantasia,cnpj,emailEmpresa);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    SELECT count(nome) as contagem FROM empresa WHERE empresa.nome = '${nomeEmpresarial}' AND empresa.nomeFantasia = '${nomeFantasia}' AND empresa.cnpj = '${cnpj}' AND empresa.emailContato= '${emailEmpresa}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
 
 
 
@@ -44,6 +56,7 @@ function cadastrarEndereco(numero,complemento,cep,logradouro,bairro,cidade,estad
 
 module.exports = {
     cadastrarEmpresa,
-    cadastrarEndereco
+    cadastrarEndereco,
+    verificarEmpresa
     
 };
