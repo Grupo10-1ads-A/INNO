@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MoldTech/cadastro</title>
+  <title>InnoTech/cadastro</title>
   <link rel="stylesheet" href="style/style.css" />
   <script src="./js/funcoes.js"></script>
   <link rel="icon" href="assets/icons/IN.png" />
@@ -18,15 +18,13 @@
 </div>
 
 <body class="bodyCadastroLogin">
-  <div class="header_cadastro">
-    <div class="container_voltar">
-      <div class="voltar">
-        <a href="index.html">
-          <div class="arrow-left"></div><span>Voltar</span>
-        </a>
-      </div>
-    </div>
+
+  <div class="voltar">
+    <a href="index.html">
+      <div class="arrow-left"></div><span>Voltar</span>
+    </a>
   </div>
+
 
   <div class="formboxCadastro">
 
@@ -65,9 +63,9 @@
         <div class="dados2">
           <div class="#">
             <p>
-              Cell
+              Celular
             </p>
-            <input id="inp_tell" placeholder="0000-0000" />
+            <input id="inp_tell" placeholder="(00) 0000-0000" />
           </div>
 
 
@@ -98,58 +96,58 @@
 </html>
 <script>
 
-    function cadastrar() {
-        var nomeVar = inp_Nome.value
-        var emailVar = inp_email.value
-        var cpfVar = inp_cpf.value
-        var senhaVar = inp_senha.value
-        var confirmSenhaVar = inp_confirmSenha.value
-        var tellVar = inp_tell.value
-       
+  function cadastrar() {
+    var nomeVar = inp_Nome.value
+    var emailVar = inp_email.value
+    var cpfVar = inp_cpf.value
+    var senhaVar = inp_senha.value
+    var confirmSenhaVar = inp_confirmSenha.value
+    var tellVar = inp_tell.value
 
-        if (nomeVar != "" && emailVar != "" && cpfVar != "" && senhaVar != "" && confirmSenhaVar != "") {
-            
-        }
-        else (
-            alert("Certifique-se que todos os campos estão preenchidos.")
-        )
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                cpfServer: cpfVar,
-                senhaServer: senhaVar,
-                tellServer: tellVar,
-               
-            })
-        }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-            
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-
-        });
-
-        return false;
+    if (nomeVar != "" && emailVar != "" && cpfVar != "" && senhaVar != "" && confirmSenhaVar != "") {
 
     }
+    else (
+      alert("Certifique-se que todos os campos estão preenchidos.")
+    )
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        cpfServer: cpfVar,
+        senhaServer: senhaVar,
+        tellServer: tellVar,
+
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+
+        setTimeout(() => {
+          window.location = "login.html";
+        }, "2000")
+
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+
+    });
+
+    return false;
+
+  }
 
 
 
@@ -157,7 +155,7 @@
 
 </script>
 <!-- ======= -->
-  <!-- function cadastrar() {
+<!-- function cadastrar() {
     var nome_var = inp_Nome.value;
     var email_var = inp_email.value;
     var cpf_var = inp_cpf.value;
