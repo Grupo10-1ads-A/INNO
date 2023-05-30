@@ -103,7 +103,7 @@
 
                         <div class="card">
                             <div class="descri">Grafico de Umidade (%)</div>
-                            <canvas id="myChart"></canvas>
+                            <canvas id="myChart1"></canvas>
                         </div>
                         <div class="card">
                             <div class="descri">Grafico de Temperatura (C°)</div>
@@ -116,11 +116,24 @@
 
                         <div class="card">
                             <div class="descri">Grafico de Umidade (%)</div>
-                            <canvas id="myChart"></canvas>
+                            <canvas id="myChart3"></canvas>
                         </div>
                         <div class="card">
                             <div class="descri">Grafico de Temperatura (°C)</div>
-                            <canvas id="myChart2"></canvas>
+                            <canvas id="myChart4"></canvas>
+                        </div>
+
+                    </div>
+
+                    <div class="grafico">
+
+                        <div class="card">
+                            <div class="descri">Grafico de Umidade (%)</div>
+                            <canvas id="myChart5"></canvas>
+                        </div>
+                        <div class="card">
+                            <div class="descri">Grafico de Temperatura (°C)</div>
+                            <canvas id="myChart6"></canvas>
                         </div>
 
                     </div>
@@ -145,11 +158,55 @@ let proximaAtualizacao;
 
 window.onload = obterDadosGraficos();
 
+
+  
 function obterDadosGraficos() {
-    obterDadosGrafico(1)
-    obterDadosGrafico(2)
-    obterDadosGrafico(3)
-    obterDadosGrafico(4)
+
+    fetch("/medida/contagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nome_empresarialServer: nome_empresarial_Var,
+                nome_fantasiaServer: nome_fantasia_Var,
+                cnpjServer: cnpj_Var,
+                email_empresarialServer: email_Var
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    var resp = json[0].contagem;
+
+                    console.log(resp);
+
+                    if (resp == 0) {
+                        cadastrar_empresa()
+                    } else { alert("sua empresa ja foi cadastrada.") }
+                });
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro de empresa no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+
+    }
+
 }
 
 // verificar_autenticacao();
@@ -311,6 +368,7 @@ function atualizarGrafico(idSensor, dados, myChart) {
                 console.log(`Dados atuais do gráfico:`);
                 console.log(dados);
 
+                
                 // let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
                 // avisoCaptura.innerHTML = ""
 

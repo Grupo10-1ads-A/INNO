@@ -54,6 +54,7 @@ function verificarEmpresa(nomeEmpresarial,nomeFantasia,cnpj,emailEmpresa) {
 
 
 
+
 module.exports = {
     cadastrarEmpresa,
     cadastrarEndereco,
