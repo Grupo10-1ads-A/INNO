@@ -1,117 +1,61 @@
+                setTimeout(function cadastrarEndereco() {
+                    var numero_Var = numero_input.value
+                    var complemento_Var = complemento_input.value
+                    var cep_Var = cep_input.value
+                    var logradouro_Var = logradouro_input.value
+                    var bairro_Var = bairro_input.value
+                    var cidade_Var = cidade_input.value
+                    var estado_Var = estado_input.value
+                    var cnpj_Var = cnpj_input.value
+                    var nome_empresarial_Var = nome_empresa_input.value
 
-         Criei os caminhos para o cadastro da empresa e do usuario, tambem precoso criar o caminho do 
-         endereco, sera crucial haver tambem aonde possa-se cadastrar o setor. 
-         a maior parte dos erros que estavam dando eram, nomes diferentes nas variaveis, variaveis 
-         extras, e variaveis faltando.
-         Para melhor integração com o banco fiz uma alterção na pagina de cadastro do usuario 
-         adicionando o campo tell. 
+                    if (cep_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != ""
+                        || logradouro_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != "") { console.log(`todos os campos foram preenchidos`) }
+                    else (alert("Certifique-se que todos os campos estão preenchidos."))
 
-         criei caminhos completamente diferenes para usuario e empresa pois facilita a gerencia de 
-         erros.        
-   
-   
-   INSERT INTO endereco (numero,complemento,cep,logradouro,bairro,cidade,estado,fkEmpresa) VALUES ('133','','04849190','','assjdkjad','Sâo Paulo','SP',(SELECT idEmpresa from empresa where cnpj = '12345678901111' AND nome ='dadsfadsf'));
-   
-   
-   
-   
-   
-   
-   
-                  setTimeout(() => {
-                    window.location = "cadastro.html";
-                }, "2000")
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
-    } else if (nomeFantasia == undefined) {
-        res.status(400).send("Sua nomeF está undefined!");
-    } else if(cep == undefined){
-        res.status(400).send("seu cep está undefined!");
-    }else if(rua == undefined){
-        res.status(400).send("Sua rua esta undefined!")
-    }else if (bairro == undefined){
-        res.status(400).send("Seu bairro está undefined!")
-    }else if (cidade == undefined){
-        res.status(400).send("Sua cidade está undefined!")
-    }else if (estado == undefined){
-        res.status(400).send("Seu estado está undefined!")
-    }else if (telefone == undefined){
-        res.status(400).send("Seu telefone está undefined!")
-    }else if (logradouro == undefined){
-        res.status(400).send("Seu logradouro está undefined!")
-    }else if (numero == undefined){
-        res.status(400).send("Seu numero está undefined!")
-    }else if (email_empresa == undefined){
-        res.status(400).send("Seu email empresarial está undefined!")
-    }else if (nomeEmpresa == undefined){
-        res.status(400).send("Seu nome empresarial está undefined!")
-    }else {
-        
-        
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, cpf, senha,nomeFantasia, cep, rua, bairro, cidade, estado, telefone, logradouro, numero, email_empresa, nomeEmpresa)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+                    // Enviando o valor da nova input
+                    fetch("/empresas/cadastrarEndereco", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ 
+                            // crie um atributo que recebe o  valor recuperado aqui
+                            // Agora vá para o arquivo routes/usuario.js
+                            numeroServer: numero_Var,
+                            complementoServer: complemento_Var,
+                            cepServer: cep_Var,
+                            logradouroServer: logradouro_Var,
+                            bairroServer: bairro_Var,
+                            cidadeServer: cidade_Var,
+                            estadoServer: estado_Var,
+                            cnpjServer: cnpj_Var,
+                            nomeEmpresarialServer: nome_empresarial_Var
+
+                        })
+                    }).then(function (resposta) {
+
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                            console.log("Cadastro do endereço realizado com sucesso! Redirecionando para tela de cadastro de endereço...");
+                        
+                          setTimeout(function agora_é_o_usuario() {
+                            window.location.href = 'cadastro.html'
+                          }, 2000);  
+                        
+                        } else {
+                            throw ("Houve um erro ao tentar realizar o cadastro de endereço no html!");
+                        }
+                    }).catch(function (resposta) {
+                        console.log(`não foi ${resposta}`);
+
+                    });
+
+                    return false;
+                },3000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        INSERT INTO empresa ( nomeEmpresa,nomeFantasia, cnpj, email_empresa) VALUES ('${nomeEmpresa}', '${nomeFantasia}', '${cnpj}','${email_empresa}');
-
-         INSERT INTO endereco ( cep, rua, bairro, cidade, estado,logradouro, numero) VALUES ('${cep}', '${rua}', '${bairro}',  '${cidade}', '${estado}', '${numero}', '${logradouro}');
-
-
-
-
-
+                COLOCAR CPF UNIQ
+                DELIMITAR AS INPUTS QUE POSSUIREM char
+                    

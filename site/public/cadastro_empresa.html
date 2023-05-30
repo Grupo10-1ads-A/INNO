@@ -16,35 +16,12 @@
     </a>
 </div>
 <body class="bodyCadastroEmpresa">
-    <div class="header">
-
-        <div class="container">
-            <div>
+    <div class="header_cadastro">
+        <div class="container_voltar">
+            <div class="voltar">
                 <a href="index.html">
-                    <img src="assets/icons/IN.png" alt="">
+                    <div class="arrow-left"></div><span>Voltar</span>
                 </a>
-            </div>
-
-            <div class="navbar">
-                <div>
-                    <a href="index.html">Home</a>
-                </div>
-                <div>
-                    <a href="">Contatos</a>
-                </div>
-
-                <div>
-                    <a href="">Sobre Nós</a>
-                </div>
-
-                <div>
-                    <a href="login.html">Login</a>
-                </div>
-
-                <div>
-                    <button onclick="pagina_cadastro()">Cadastro</button>
-                </div>
-
             </div>
         </div>
     </div>
@@ -69,19 +46,19 @@
 
                 <div>Número <br> <input id="numero_input"> </div> <br>
                 <div class="botao">
-                    <button onclick="confirmar_cadastro()">Confirmar</button>
+                    <button style="cursor: pointer;" onclick="confirmar_cadastro()">Confirmar</button>
                 </div>
             </div>
 
             <div class="cadastroEndereco">
-                <div>complemento <br> <input id="complemento_input"> </div> <br>
+                <div>Complemento <br> <input id="complemento_input"> </div> <br>
 
                 <div>Bairro <br> <input id="bairro_input"></div> <br>
 
                 <div>Cidade <br> <input id="cidade_input"></div> <br>
 
                 <div>Estado <br> <input id="estado_input"></div> <br>
-
+                
             </div>
         </div>
 
@@ -98,6 +75,61 @@
     }
 
     function confirmar_cadastro() {
+        var nome_empresarial_Var = nome_empresa_input.value
+        var nome_fantasia_Var = nome_fantasia_input.value
+        var cnpj_Var = cnpj_input.value
+        var email_Var = email_input.value
+
+
+        if (nome_empresarial_Var != "" && nome_fantasia_Var != "" && cnpj_Var != "" && email_Var) { console.log(`todos os campos foram preenchidos`) }
+        else (alert("Certifique-se que todos os campos estão preenchidos."))
+
+        // Enviando o valor da nova input
+        fetch("/empresas/verificarEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nome_empresarialServer: nome_empresarial_Var,
+                nome_fantasiaServer: nome_fantasia_Var,
+                cnpjServer: cnpj_Var,
+                email_empresarialServer: email_Var
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    var resp = json[0].contagem;
+
+                    console.log(resp);
+
+                    if (resp == 0) {
+                        cadastrar_empresa()
+                    } else { alert("sua empresa ja foi cadastrada.") }
+                });
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro de empresa no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+
+    }
+    function cadastrar_empresa() {
         var nome_empresarial_Var = nome_empresa_input.value
         var nome_fantasia_Var = nome_fantasia_input.value
         var cnpj_Var = cnpj_input.value
@@ -127,62 +159,8 @@
 
             if (resposta.ok) {
 
-                setTimeout(function cadastrarEndereco() {
-                    var numero_Var = numero_input.value
-                    var complemento_Var = complemento_input.value
-                    var cep_Var = cep_input.value
-                    var logradouro_Var = logradouro_input.value
-                    var bairro_Var = bairro_input.value
-                    var cidade_Var = cidade_input.value
-                    var estado_Var = estado_input.value
-                    var cnpj_Var = cnpj_input.value
-                    var nome_empresarial_Var = nome_empresa_input.value
+                cadastrarEndereco()
 
-                    if (cep_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != ""
-                        || logradouro_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != "") { console.log(`todos os campos foram preenchidos`) }
-                    else (alert("Certifique-se que todos os campos estão preenchidos."))
-
-                    // Enviando o valor da nova input
-                    fetch("/empresas/cadastrarEndereco", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({ 
-                            // crie um atributo que recebe o  valor recuperado aqui
-                            // Agora vá para o arquivo routes/usuario.js
-                            numeroServer: numero_Var,
-                            complementoServer: complemento_Var,
-                            cepServer: cep_Var,
-                            logradouroServer: logradouro_Var,
-                            bairroServer: bairro_Var,
-                            cidadeServer: cidade_Var,
-                            estadoServer: estado_Var,
-                            cnpjServer: cnpj_Var,
-                            nomeEmpresarialServer: nome_empresarial_Var
-
-                        })
-                    }).then(function (resposta) {
-
-                        console.log("resposta: ", resposta);
-
-                        if (resposta.ok) {
-                            console.log("Cadastro do endereço realizado com sucesso! Redirecionando para tela de cadastro de endereço...");
-                        
-                          setTimeout(function agora_é_o_usuario() {
-                            window.location.href = 'cadastro.html'
-                          }, 2000);  
-                        
-                        } else {
-                            throw ("Houve um erro ao tentar realizar o cadastro de endereço no html!");
-                        }
-                    }).catch(function (resposta) {
-                        console.log(`não foi ${resposta}`);
-
-                    });
-
-                    return false;
-                },3000);
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro de empresa no html!");
@@ -195,4 +173,61 @@
         return false;
 
     }
+
+    function cadastrarEndereco() {
+        var numero_Var = numero_input.value
+        var complemento_Var = complemento_input.value
+        var cep_Var = cep_input.value
+        var logradouro_Var = logradouro_input.value
+        var bairro_Var = bairro_input.value
+        var cidade_Var = cidade_input.value
+        var estado_Var = estado_input.value
+        var cnpj_Var = cnpj_input.value
+        var nome_empresarial_Var = nome_empresa_input.value
+
+        if (cep_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != ""
+            || logradouro_Var != "" && numero_Var != "" && bairro_Var != "" && cidade_Var != "" && estado_Var != "") { console.log(`todos os campos foram preenchidos`) }
+        else (alert("Certifique-se que todos os campos estão preenchidos."))
+
+        // Enviando o valor da nova input
+        fetch("/empresas/cadastrarEndereco", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o  valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                numeroServer: numero_Var,
+                complementoServer: complemento_Var,
+                cepServer: cep_Var,
+                logradouroServer: logradouro_Var,
+                bairroServer: bairro_Var,
+                cidadeServer: cidade_Var,
+                estadoServer: estado_Var,
+                cnpjServer: cnpj_Var,
+                nomeEmpresarialServer: nome_empresarial_Var
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Cadastro do endereço realizado com sucesso! Redirecionando para tela de cadastro de endereço...");
+
+                setTimeout(function agora_é_o_usuario() {
+                    window.location.href = 'cadastro.html'
+                }, 2000);
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro de endereço no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+    };
 </script>

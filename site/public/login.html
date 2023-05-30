@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="style/style.css">
     <link rel="icon" href="assets/icons/IN.png">
@@ -13,33 +13,17 @@
 
 <div class="help" target="blank">
     <a href="https://techinno.on.spiceworks.com/portal/registrations">
-        <img src="assets/icons/info.png" >
+        <img src="assets/icons/info.png">
     </a>
 </div>
+
 <body class="bodyCadastroLogin">
-    <div class="header">
-
-        <div class="container">
-            <div>
+    <div class="header_cadastro">
+        <div class="container_voltar">
+            <div class="voltar">
                 <a href="index.html">
-                    <img src="assets/icons/IN.png" alt="">
+                    <div class="arrow-left"></div><span>Voltar</span>
                 </a>
-            </div>
-
-            <div class="navbar">
-                <div>
-                    <a href="index.html">Home</a>
-                </div>
-
-                    <a href="index.html">Simulador Financeiro</a>
-                <div>
-                    <a href="" class="now">Login</a>
-                </div>
-
-                <div>
-                    <button onclick="pagina_cadastro()">Cadastro</button>
-                </div>
-
             </div>
         </div>
     </div>
@@ -56,11 +40,11 @@
             </div> <br>
 
             <div class="botao">
-                <button onclick="entrar()">Login</button>
+                <button style="cursor: pointer;" onclick="entrar()">Login</button>
             </div>
             <div class="faixa">
                 <div class="cadastrese">
-                   <a href="cadastro.html"> Ainda não tem conta? </a>
+                    <a href="cadastro.html"> Ainda não tem conta? </a>
                 </div>
             </div>
         </div>
@@ -68,6 +52,7 @@
 </body>
 
 </html>
+
 <script>
 
 function entrar() {
