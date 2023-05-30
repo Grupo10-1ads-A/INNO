@@ -147,15 +147,15 @@ window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
     obterDadosGrafico(1)
-    obterDadosGrafico(1)
     obterDadosGrafico(2)
-    obterDadosGrafico(2)
+    obterDadosGrafico(3)
+    obterDadosGrafico(4)
 }
 
-verificar_autenticacao();
+// verificar_autenticacao();
 
 function alterarTitulo(idSensor) {
-    var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
+    var tituloAquario = document.getElementById(`tituloSensor${idSensor}`)
     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
 }
 
