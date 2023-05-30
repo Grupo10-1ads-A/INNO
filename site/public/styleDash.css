@@ -1,146 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Imprima&family=Inconsolata:wght@700;900&family=Inter:wght@700&family=Open+Sans:ital,wght@1,300&family=Roboto&family=Roboto+Condensed&display=swap');
+
 /*font-family: 'Imprima', sans-serif;
 font-family: 'Inconsolata', monospace;
 font-family: 'Inter', sans-serif;
 font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
 font-family: 'Roboto Condensed', sans-serif;*/
-body{
+body {
     margin: 0;
-    background-color: #5C677D;
+    background-color: #D9D9D9;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 /********************************ALERTAS**********************************************/
+.alertas-coloridos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* margin-top: 10px; */
+}
+
+.alertas {
+    width: 100%;
+}
+
+.text-alertas {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.titulo-alertas {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    width: 100%;
+}
+.alertas-coloridos p{
+    font-size: 15px;
+    /* margin-left: 10px;
+    margin-top: 10px; */
+    text-align: center;
+
+}
+
+/************************** ALERTAS - CAIXAS ******************************/
+.perigo {
+    width: 156px;
+    height: 146px;
+    background: linear-gradient(0deg, #C92F0D, #C92F0D), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
+    border-radius: 16px;
+}
+
+.alerta {
+    width: 156px;
+    height: 146px;
+    background: linear-gradient(0deg, #E9A509, #E9A509), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
+    border-radius: 16px;
+}
+
+.ideal {
+    width: 156px;
+    height: 146px;
+    background: linear-gradient(0deg, #52A66A, #52A66A), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
+    border-radius: 16px;
+}
+
+/**************************************DASHBOARD*********************************************************/
 .help {
     margin-left: 90vw;
     margin-top: 80vh;
     position: fixed;
 }
 
-.help a{    
+.help a {
     width: 100%;
     padding-right: 2vh;
     padding-bottom: 2vh;
 }
 
-.help img{
+.help img {
     width: 65%;
 }
-/* .alertas .regua{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around; 
-    justify-content: center;
-} */
-.alertas{
-    background-color:#0353A4;
-    width: 1326px;
-    height: 411px;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-}
-.alertas-temperatura{
-    display: flex;
-    flex-direction: row;
-    margin-left: 188px;
-    align-items: center;
-    margin-top: 25px;  
-}
-.alertas-umidade{
-    display: flex;
-    flex-direction: row;
-    margin-left: 188px;
-    align-items: center;
-    margin-top: 25px;  
-}
-.titulo-temperatura{
-    /* font-family: 'Inter', sans-serif; */
-    margin-left: 539px;
-    color: aliceblue;
-}
-.titulo-umidade{
-    /* font-family: 'Inter', sans-serif; */
-    margin-left: 539px;
-    color: aliceblue;
-}
-.perigo-frio{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 170px;
-    height: 105px;
-    background-color: #ff0d00;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 20px;
-}
-.alerta-frio{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 170px;
-    height: 105px;
-    background-color: #ecf02c;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 20px;
-}
-.ideal{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 170px;
-    height: 105px;
-    background-color: rgb(25, 192, 136);
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 20px;
-}
-.alerta-quente{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 170px;
-    height: 105px;
-    background-color: #ecf02c;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 20px;
-}
-.perigo-quente{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    width: 170px;
-    height: 105px;
-    background-color: rgb(247, 4, 4);
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 20px;
-}
-  
-/**************************************DASHBOARD*********************************************************/
 
 .geral {
     display: flex;
 }
 
-.tela .navbar{
+.tela .navbar {
     width: 99%;
     display: flex;
     justify-content: center;
@@ -148,16 +99,16 @@ body{
     justify-content: space-between;
 }
 
-.tela .navbar button{
+.tela .navbar button {
     height: 20px;
 }
 
-.tela .navbar h1{
+.tela .navbar h1 {
     color: white;
     margin-left: 510px;
 }
 
-.user{
+.user {
     background-color: #0353A4;
     display: flex;
     flex-direction: column;
@@ -173,34 +124,34 @@ body{
     align-items: center;
 }
 
-.user .profile p{
+.user .profile p {
     color: white;
-    font-size: 2vh;   
+    font-size: 2vh;
 }
 
-.user .profile .profileIcon{
+.user .profile .profileIcon {
     width: 20vh;
     height: 20vh;
     background-color: white;
     border-radius: 100%;
 }
 
-.user .profile .profileIcon img{
+.user .profile .profileIcon img {
     width: 20vh;
     height: 20vh;
     border-radius: 100%;
 }
 
-.user .funcoes{
+.user .funcoes {
     display: flex;
     width: 100%;
-    flex-direction: column; 
+    flex-direction: column;
     position: absolute;
     bottom: 0;
     margin-bottom: 5vh;
 }
 
-.user .funcoes button{
+.user .funcoes button {
     height: 10vh;
     width: 100%;
     color: white;
@@ -209,13 +160,13 @@ body{
     background-color: #023E7D;
 }
 
-.user .funcoes button:hover{
+.user .funcoes button:hover {
     transition: 1s;
     background-color: #0466C8;
     cursor: pointer;
 }
 
-.subContent{
+.subContent {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -229,15 +180,15 @@ body{
 
 .tela .grafico {
     display: flex;
-    width:  100%;
+    width: 100%;
     margin-top: 5vh;
 }
 
-.tela .grafico .descri{
+.tela .grafico .descri {
     margin: 5px;
 }
 
-.tela .grafico .card{
+.tela .grafico .card {
     width: 93%;
     border-radius: 15px;
     background-color: white;
@@ -245,23 +196,26 @@ body{
     padding: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.graficohistorico{
+
+.graficohistorico {
     background-color: white;
     width: 93%;
     border-radius: 10px;
     margin-left: 35px;
 }
-.descrihistorico{
+
+.descrihistorico {
     color: #023E7D;
     font-size: 20px;
     text-align: center;
 }
-.botao-exit button{
+
+.botao-exit button {
     margin-top: 8px;
     background-image: url(../public/assets/icons/exit-botao\ 1.png);
     background-color: white;
     width: 30px;
     height: 30px;
     border-color: white;
-    border-radius: 3px; 
+    border-radius: 3px;
 }
