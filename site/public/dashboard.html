@@ -136,6 +136,7 @@
 
     window.onload = obterDadosGraficos();
 
+<<<<<<< HEAD
     function obterDadosGraficos() {
         obterDadosGrafico(1)
         obterDadosGrafico(1)
@@ -149,6 +150,21 @@
         var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
         tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
     }
+=======
+function obterDadosGraficos() {
+    obterDadosGrafico(1)
+    obterDadosGrafico(2)
+    obterDadosGrafico(3)
+    obterDadosGrafico(4)
+}
+
+// verificar_autenticacao();
+
+function alterarTitulo(idSensor) {
+    var tituloAquario = document.getElementById(`tituloSensor${idSensor}`)
+    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
+}
+>>>>>>> 3dd2174fe3ebbfc72a0a8f5ecf5d4e004c75b6b3
 
     function exibirAquario(idSensor) {
         let todosOsGraficos = document.getElementById("graficos")
