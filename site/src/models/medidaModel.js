@@ -76,7 +76,19 @@ function buscar(idSensor){
 
 }
 
+function contagem (idEmpresa){    
+console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idEmpresa)
+var instrucao = `
+SELECT sensor.* FROM sensor JOIN setor ON sensor.fkSetor = setor.idSetor 
+JOIN endereco ON setor.fkEndereco = idEndereco
+JOIN empresa ON endereco.fkEmpresa = empresa.idEmpresa
+WHERE idEmpresa =${idEmpresa} ;
+`;
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);}
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    contagem
 }

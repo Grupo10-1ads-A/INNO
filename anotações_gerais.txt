@@ -1,0 +1,4 @@
+RAFA:
+cria um campo em que o o usuario ao se cadastrar coloque o cnpj da empresa.
+adiciona essa variavel cnpj em todo o caminho do usuario.
+e no banco eu crio o select na sala porque ele é meio esquizofrenico.

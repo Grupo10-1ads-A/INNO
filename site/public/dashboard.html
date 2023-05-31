@@ -42,49 +42,49 @@
         <div class="subContent">
 
             <div class="tela" id="div_tela">
-                
 
-                    <div class="alertas">
-                        <div class="titulo-alertas">
-                            <h2 class="titulo-alertas">Alertas:</h2>
+
+                <div class="alertas">
+                    <div class="titulo-alertas">
+                        <h2 class="titulo-alertas">Alertas:</h2>
+                    </div>
+                    <!-- ALERTA VERMELHO PERIGO FRIO E PERIGO SECO -->
+                    <div class="alertas-coloridos">
+                        <div class="perigo">
+                            <h3 class="text-alertas">Perigo Frio</h3><br>
+                            <p>menor igual a 5°C</p>
+                            <h3 class="text-alertas">Perigo Seco</h3><br>
+                            <p>menor igual a 50%</p>
                         </div>
-                        <!-- ALERTA VERMELHO PERIGO FRIO E PERIGO SECO -->
-                        <div class="alertas-coloridos">
-                            <div class="perigo">
-                                <h3 class="text-alertas">Perigo Frio</h3><br>
-                                <p>menor igual a 5°C</p>
-                                <h3 class="text-alertas">Perigo Seco</h3><br>
-                                <p>menor igual a 50%</p>
-                            </div>
-                            <div class="alerta">
-                                <h3 class="text-alertas">Alerta Frio</h3><br>
-                                <p>Maior que 5°C e menor que 10°C</p>
-                                <img src="assets/icons/alerta 1.png">
-                                <h3 class="text-alertas">Alerta Seco</h3><br>
-                                <p>Maior que 50% e menor que 51,6%</p>
-                            </div>
-                            <div class="ideal">
-                                <h3 class="text-alertas">Temperatura Ideal</h3><br>
-                                <p>Maior que 9° e menor que 19°C</p>
-                                <h3 class="text-alertas">Umidade Ideal</h3><br>
-                                <p>Maior que 51,5% e menor 56,5%</p>
-                            </div>
-                            <div class="alerta">
-                                <h3 class="text-alertas">Alerta Quente</h3><br>
-                                <p>Maior que 18° e menor 25°C</p>
-                                <h3 class="text-alertas">Alerta Umido</h3><br>
-                                <p>Maior que 56,4% e menor 60%</p>
-                            </div>
-                            <div class="perigo">
-                                <h3 class="text-alertas">Perigo Quente</h3><br>
-                                <p>Maior que 24°C</p>
-                                <h3 class="text-alertas">Perigo Umido</h3><br>
-                                <p>Maior que 59%</p>
-                            </div>
+                        <div class="alerta">
+                            <h3 class="text-alertas">Alerta Frio</h3><br>
+                            <p>Maior que 5°C e menor que 10°C</p>
+                            <img src="assets/icons/alerta 1.png">
+                            <h3 class="text-alertas">Alerta Seco</h3><br>
+                            <p>Maior que 50% e menor que 51,6%</p>
+                        </div>
+                        <div class="ideal">
+                            <h3 class="text-alertas">Temperatura Ideal</h3><br>
+                            <p>Maior que 9° e menor que 19°C</p>
+                            <h3 class="text-alertas">Umidade Ideal</h3><br>
+                            <p>Maior que 51,5% e menor 56,5%</p>
+                        </div>
+                        <div class="alerta">
+                            <h3 class="text-alertas">Alerta Quente</h3><br>
+                            <p>Maior que 18° e menor 25°C</p>
+                            <h3 class="text-alertas">Alerta Umido</h3><br>
+                            <p>Maior que 56,4% e menor 60%</p>
+                        </div>
+                        <div class="perigo">
+                            <h3 class="text-alertas">Perigo Quente</h3><br>
+                            <p>Maior que 24°C</p>
+                            <h3 class="text-alertas">Perigo Umido</h3><br>
+                            <p>Maior que 59%</p>
                         </div>
                     </div>
+                </div>
 
-                
+
                 <h1 id="h1_setor"></h1>
                 <div class="botao-exit">
                     <button onclick="logout()"></button>
@@ -149,7 +149,7 @@
 
     window.onload = obterDadosGraficos();
 
-<<<<<<< HEAD
+
     function obterDadosGraficos() {
         obterDadosGrafico(1)
         obterDadosGrafico(1)
@@ -157,21 +157,16 @@
         obterDadosGrafico(2)
     }
 
-    verificar_autenticacao();
+    // verificar_autenticacao();
 
-<<<<<<< HEAD
+    // function alterarTitulo(idSensor) {
+    //     var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
+    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
+    // }
 
-  
-=======
-    function alterarTitulo(idSensor) {
-        var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
-    }
-=======
->>>>>>> d49476909006aa62f13a9be2e9fc2592d8aae76b
-function obterDadosGraficos() {
+    function obterDadosGraficos() {
 
-    fetch("/medida/contagem", {
+        fetch("/medida/contagem", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -179,10 +174,7 @@ function obterDadosGraficos() {
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nome_empresarialServer: nome_empresarial_Var,
-                nome_fantasiaServer: nome_fantasia_Var,
-                cnpjServer: cnpj_Var,
-                email_empresarialServer: email_Var
+                fkEmpresaServer: sessionStorage.FK_EMPRESA
             })
         }).then(function (resposta) {
 
@@ -195,13 +187,11 @@ function obterDadosGraficos() {
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    var resp = json[0].contagem;
+                    var resp = json.contagem[0];
 
                     console.log(resp);
 
-                    if (resp == 0) {
-                        cadastrar_empresa()
-                    } else { alert("sua empresa ja foi cadastrada.") }
+
                 });
 
             } else {
@@ -216,15 +206,15 @@ function obterDadosGraficos() {
 
     }
 
-}
 
-// verificar_autenticacao();
 
-function alterarTitulo(idSensor) {
-    var tituloAquario = document.getElementById(`tituloSensor${idSensor}`)
-    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
-}
->>>>>>> 3dd2174fe3ebbfc72a0a8f5ecf5d4e004c75b6b3
+    // verificar_autenticacao();
+
+    function alterarTitulo(idSensor) {
+        var tituloAquario = document.getElementById(`tituloSensor${idSensor}`)
+        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
+    }
+
 
     function exibirAquario(idSensor) {
         let todosOsGraficos = document.getElementById("graficos")
@@ -380,13 +370,6 @@ function alterarTitulo(idSensor) {
 
                     // let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
                     // avisoCaptura.innerHTML = ""
-
-<<<<<<< HEAD
-                
-                // let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
-                // avisoCaptura.innerHTML = ""
-=======
->>>>>>> d49476909006aa62f13a9be2e9fc2592d8aae76b
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
