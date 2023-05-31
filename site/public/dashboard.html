@@ -27,11 +27,10 @@
                 <p id="p_usuario">Usuário</p>
             </div>
             <div class="funcoes">
-                <button onclick="campo1()">
-                    Setor 1
-                </button>
-                <button onclick="campo2()">
-                    Setor 2
+                <select id="SETORIZACAO">
+
+                </select>
+
                 </button>
                 <button onclick="historico()">
                     Histórico
@@ -187,9 +186,12 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    var resp = json.contagem[0];
 
-                    console.log(resp);
+
+                    for (var i = 0; i < json.length; i++) {
+                        id_dos_Setores[i] = json[i].idSetor;
+                        console.log(id_dos_Setores[i]);
+                    }
 
 
                 });
@@ -205,6 +207,20 @@
         return false;
 
     }
+    setTimeout(function exibirSetor() {
+        for (var i = 0; i < id_das_fichas.length; i++) {
+
+
+            var buttonElement = document.createElement("opition");
+
+            buttonElement.value = i + 1;
+            buttonElement.text = id_das_fichas[i];
+            var divi = document.getElementById("SETORIZACAO");
+            divi.appendChild(buttonElement);
+
+        }
+
+    }, 2000);
 
 
 
@@ -235,15 +251,15 @@
             btnAtual.classList.add("btn-white")
         }
 
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idSensor}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
+        // // exibindo - ou não - o gráfico
+        // let graficoExibir = document.getElementById(`grafico${idSensor}`)
+        // graficoExibir.classList.remove("display-none")
+        // graficoExibir.classList.add("display-block")
 
-        // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idSensor}`)
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
+        // // alterando estilo do botão
+        // let btnExibir = document.getElementById(`btnAquario${idSensor}`)
+        // btnExibir.classList.remove("btn-white")
+        // btnExibir.classList.add("btn-pink")
     }
 
     // O gráfico é construído com três funções:

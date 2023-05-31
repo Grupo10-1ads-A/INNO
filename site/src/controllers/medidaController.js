@@ -41,7 +41,7 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function contagem(req,res){
+function contagem(req,res){ /*DE SETOR*/
     var idEmpresa = req.body.fkEmpresaServer;
 
     console.log ('estamos no medidas controller')

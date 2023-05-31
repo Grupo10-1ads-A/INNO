@@ -5,7 +5,7 @@ var medidaController = require("../controllers/medidaController");
 
 router.post("/contagem", function (req, res) {
     medidaController.contagem(req, res);
-});
+});//CONTAGEM DE SETORS
 
 router.get("/ultimas_umidades/:idSensor", function (req, res) {
     medidaController.buscarUltimasMedidasUmidades(req, res);
