@@ -27,14 +27,15 @@
                 <p id="p_usuario">Usuário</p>
             </div>
             <div class="funcoes">
+                <button onclick="">
+                    Histórico
+                </button>
                 <select id="SETORIZACAO">
 
                 </select>
 
-                </button>
-                <button onclick="historico()">
-                    Histórico
-                </button>
+        
+                
             </div>
         </div>
 
@@ -149,12 +150,12 @@
     window.onload = obterDadosGraficos();
 
 
-    function obterDadosGraficos() {
-        obterDadosGrafico(1)
-        obterDadosGrafico(1)
-        obterDadosGrafico(2)
-        obterDadosGrafico(2)
-    }
+    // function obterDadosGraficos() {
+    //     obterDadosGrafico(1)
+    //     obterDadosGrafico(1)
+    //     obterDadosGrafico(2)
+    //     obterDadosGrafico(2)
+    // }
 
     // verificar_autenticacao();
 
@@ -226,8 +227,8 @@
 
     // verificar_autenticacao();
 
-    function alterarTitulo(idSensor) {
-        var tituloAquario = document.getElementById(`tituloSensor${idSensor}`)
+    function alterarTitulo(idSetor) {
+        var tituloAquario = document.getElementById(`tituloSensor${idSetor}`)
         tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
     }
 
@@ -244,11 +245,11 @@
             elementoAtual.classList.add("display-none")
 
             // alterando estilo do botão
-            let btnAtual = document.getElementById(`btnAquario${i}`)
-            if (btnAtual.classList.contains("btn-pink")) {
-                btnAtual.classList.remove("btn-pink")
-            }
-            btnAtual.classList.add("btn-white")
+            // let btnAtual = document.getElementById(`btnAquario${i}`)
+            // if (btnAtual.classList.contains("btn-pink")) {
+            //     btnAtual.classList.remove("btn-pink")
+            // }
+            // btnAtual.classList.add("btn-white")
         }
 
         // // exibindo - ou não - o gráfico

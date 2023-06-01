@@ -23,4 +23,12 @@ router.get("/tempo-real_temperaturas/:idSensor", function (req, res) {
     medidaController.buscarMedidasEmTempoRealTemperaturas(req, res);
 });
 
+router.get("/ultimas/:idSensor", function (req, res) {
+    medidaController.buscarUltimasMedidas(req, res);
+});
+
+router.get("/tempo-real/:idSensor", function (req, res) {
+    medidaController.buscarMedidasEmTempoReal(req, res);
+});
+
 module.exports = router;
