@@ -30,10 +30,12 @@ constraint fkLider foreign key (fkLider)
 	references usuario (idUsuario)
 );
 insert into usuario values
-(null,'Violeta','Jardins','vio@gmail.com','1212','(11) 1212-1212',3,null),
-(null,'Gabriel','Yo','ga@gmail.com','3242','(11) 4442-5647',3,1),
-(null,'Samuel','Anthonien','sa@gmail.com','23423','(11) 1546-1647',2,null),
-(null,'Safira','Red','saf@gmail.com','12341','(11) 4325-1232',1,null);
+(null,'Violeta','vio@gmail.com','11111111111','1212','(11) 1212-1212',3,null),
+(null,'Gabriel','ga@gmail.com','22222222222','3242','(11) 4442-5647',3,1),
+(null,'Samuel','sa@gmail.com','33333333333','23423','(11) 1546-1647',2,null),
+(null,'Safira','saf@gmail.com','4444444444','12341','(11) 4325-1232',1,null);
+
+
 
 create table TipoSensor (
 idTipo int primary key auto_increment,

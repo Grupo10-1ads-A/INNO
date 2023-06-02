@@ -66,7 +66,8 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var cpf = req.body.cpfServer;
     var senha = req.body.senhaServer;
-    var tell = req.body.tellServer
+    var tell = req.body.tellServer;
+   
     
 
 
@@ -96,9 +97,47 @@ function cadastrar(req, res) {
     }
 }
 
+
+function validar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var cnpj = req.body.cnpjServer;
+    
+
+    
+
+
+    // Faça as validações dos valores
+    if (cnpj == undefined) {
+        res.status(400).send("CNPJ da empresa está undefined!");
+    } else {
+
+
+
+        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
+        usuarioModel.validar(cnpj)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a verificação do cnpj! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
+    validar,
     listar,
     testar
 }

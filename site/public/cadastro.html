@@ -84,6 +84,14 @@
             <input class="#" type="password" id="inp_confirmSenha" placeholder="******" />
           </div>
 
+
+          <div class="#">
+            <p>
+              CNPJ
+            </p>
+            <input class="#" type="text" id="inp_cnpj" placeholder="" />
+          </div>
+
         </div>
       </div>
       <br>
@@ -95,6 +103,57 @@
 
 </html>
 <script>
+  function confirmar_cadastro() {
+        var cnpj_Var = cnpj_input.value
+      
+
+
+        if ( cnpj_Var != "") { console.log(`todos os campos foram preenchidos`) }
+        else (alert("Certifique-se que todos os campos estão preenchidos."))
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/validar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                cnpjServer: cnpj_Var,
+            
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    var resp = json[0].contagem;
+
+                    console.log(resp);
+
+                    if (resp == 0) {
+                        cadastrar()
+                    } else { alert("Você foi cadastrado.") }
+                });
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+
+    }
 
   function cadastrar() {
     var nomeVar = inp_Nome.value
