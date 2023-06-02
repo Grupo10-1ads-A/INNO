@@ -33,9 +33,6 @@
                 <select id="SETORIZACAO">
 
                 </select>
-
-        
-                
             </div>
         </div>
 
@@ -45,50 +42,65 @@
 
 
                 <div class="alertas">
+                    <div class="botao-exit">
+                        <button onclick="logout()"></button>
+                    </div>
                     <div class="titulo-alertas">
                         <h2 class="titulo-alertas">Alertas:</h2>
                     </div>
                     <!-- ALERTA VERMELHO PERIGO FRIO E PERIGO SECO -->
                     <div class="alertas-coloridos">
                         <div class="perigo">
-                            <h3 class="text-alertas">Perigo Frio</h3><br>
-                            <p>menor igual a 5°C</p>
-                            <h3 class="text-alertas">Perigo Seco</h3><br>
-                            <p>menor igual a 50%</p>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo Frio</span> 
+                            <span><= 5°C</span>
+                                <div style="margin-top: 5px;" class="container">
+                                    <img style="height: 40px; width: 65px;" src="assets/icons/icon_perigo.png">
+                                </div>
+                                <span style="margin-top: 15px;" class="text-alertas">Perigo Seco</span>
+                                <span style="margin-top: 10px;"> <= 50% </span>
                         </div>
                         <div class="alerta">
-                            <h3 class="text-alertas">Alerta Frio</h3><br>
-                            <p>Maior que 5°C e menor que 10°C</p>
-                            <img src="assets/icons/alerta 1.png">
-                            <h3 class="text-alertas">Alerta Seco</h3><br>
-                            <p>Maior que 50% e menor que 51,6%</p>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta Frio</span> 
+                            <span> > 5°C e < 10°C</span> 
+                                    <div style="margin-top: 5px;" class="container">
+                                        <img style="height: 40px; width: 40px;" src="assets/icons/icone_atencao.png">
+                                    </div>
+                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Seco</span> 
+                                    <span style="margin-top: 10px;"> > 50% e <= 51,5%</span>
                         </div>
                         <div class="ideal">
-                            <h3 class="text-alertas">Temperatura Ideal</h3><br>
-                            <p>Maior que 9° e menor que 19°C</p>
-                            <h3 class="text-alertas">Umidade Ideal</h3><br>
-                            <p>Maior que 51,5% e menor 56,5%</p>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Temperatura Ideal</span> 
+                            <span> >= 10°C e <= 18°C</span> 
+                                    <div style="margin-top: 5px;" class="container">
+                                        <img style="height: 44px; width: 44px;" src="assets/icons/icon_certo.png">
+                                    </div>
+                                    <span style="margin-top: 15px;" class="text-alertas">Umidade Ideal</span> 
+                                    <span style="margin-top: 7px;">>= 51,6% e <= 56,4%</span>
                         </div>
                         <div class="alerta">
-                            <h3 class="text-alertas">Alerta Quente</h3><br>
-                            <p>Maior que 18° e menor 25°C</p>
-                            <h3 class="text-alertas">Alerta Umido</h3><br>
-                            <p>Maior que 56,4% e menor 60%</p>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta Quente</span> 
+                            <span>> 18°C e <= 24°C</span>
+                                    <div style="margin-top: 5px;" class="container">
+                                        <img style="height: 40px; width: 40px;" src="assets/icons/icone_atencao.png">
+                                    </div>
+                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Úmido</span> 
+                                    <span style="margin-top: 10px;">>= 56,5% e < 60%</span>
                         </div>
                         <div class="perigo">
-                            <h3 class="text-alertas">Perigo Quente</h3><br>
-                            <p>Maior que 24°C</p>
-                            <h3 class="text-alertas">Perigo Umido</h3><br>
-                            <p>Maior que 59%</p>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo Quente</span> 
+                            <span> >= 25°C</span>
+                            <div style="margin-top: 5px;" class="container">
+                                <img style="height: 40px; width: 65px;" src="assets/icons/icon_perigo.png">
+                            </div>
+                            <span style="margin-top: 15px;" class="text-alertas">Perigo Úmido</span> 
+                            <span style="margin-top: 10px;">>= 60%</span>
                         </div>
                     </div>
                 </div>
 
 
                 <h1 id="h1_setor"></h1>
-                <div class="botao-exit">
-                    <button onclick="logout()"></button>
-                </div>
+
                 <div id="div_campo">
                     <!-- os charts aparecem aqui -->
                     <div class="grafico">

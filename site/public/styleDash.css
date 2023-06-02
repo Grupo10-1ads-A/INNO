@@ -35,40 +35,58 @@ body {
 .titulo-alertas {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-size: 30px;
+    font-size: 38px;
     text-align: center;
     color: #000000;
     width: 100%;
 }
-.alertas-coloridos p{
-    font-size: 15px;
-    /* margin-left: 10px;
-    margin-top: 10px; */
-    text-align: center;
-
-}
 
 /************************** ALERTAS - CAIXAS ******************************/
 .perigo {
-    width: 156px;
-    height: 146px;
+    width: 176px;
+    height: 176px;
     background: linear-gradient(0deg, #C92F0D, #C92F0D), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .alerta {
-    width: 156px;
-    height: 146px;
+    width: 176px;
+    height: 176px;
     background: linear-gradient(0deg, #E9A509, #E9A509), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.ideal {
-    width: 156px;
-    height: 146px;
+.ideal {    
+    width: 176px;
+    height: 176px;
     background: linear-gradient(0deg, #52A66A, #52A66A), linear-gradient(0deg, #358B4E, #358B4E), #358B4E;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.alertas-coloridos{
+    text-align: center;
+}
+
+.alertas-coloridos span{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.alertas-coloridos img {
+    margin-top: 5px;
+}
+
 
 /**************************************DASHBOARD*********************************************************/
 .help {
@@ -210,12 +228,17 @@ body {
     text-align: center;
 }
 
+.botao-exit{
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+}
+
 .botao-exit button {
-    margin-top: 8px;
+    margin-top: 18px;
     background-image: url(../public/assets/icons/exit-botao\ 1.png);
-    background-color: white;
-    width: 30px;
-    height: 30px;
-    border-color: white;
-    border-radius: 3px;
+    background-color: #D9D9D9;
+    border: none;
+    width: 28px;
+    height: 26px;
 }
