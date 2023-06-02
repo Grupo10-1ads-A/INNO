@@ -82,7 +82,7 @@ var instrucao = `
 SELECT setor.idsetor from setor 
 join endereco on setor.fkEndereco = idEndereco
 join empresa on endereco.fkEmpresa = empresa.idEmpresa
-WHERE idEmpresa = ${idEmpresa}};
+WHERE idEmpresa = ${idEmpresa};
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);}
