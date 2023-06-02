@@ -381,6 +381,7 @@ body {
 /*cadastro e login*/
 
 .bodyCadastroLogin {
+    height: 110vh;
     background-image: url(../assets/back-ground/back-ground-login.jpg);
     background-size: cover;
 }
@@ -418,6 +419,13 @@ body {
     flex-direction: column;
 }
 
+.elements .dado3 {
+    display: flex;
+
+    justify-content: start ;
+}
+
+
 .arrow-left {
     width: 33px;
     height: 33px;
@@ -430,7 +438,7 @@ body {
 }
 
 .voltar{
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 50px;
 }
 
@@ -441,8 +449,8 @@ body {
 }
 
 .cardCadastro {
-    width: 500px;
-    height: 500px;
+    width: 510px;
+    height: 549px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -467,7 +475,7 @@ body {
 .cardCadastro a{
     text-decoration: none;
     color: white;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -481,8 +489,10 @@ body {
 }
 
 .butao {
-    margin-top: 10px;
+    margin-top: 5px;
 }
+
+
 
 /* CADASTRO EMPRESA */
 
