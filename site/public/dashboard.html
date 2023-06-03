@@ -51,48 +51,53 @@
                     <!-- ALERTA VERMELHO PERIGO FRIO E PERIGO SECO -->
                     <div class="alertas-coloridos">
                         <div class="perigo">
-                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo Frio</span> 
-                            <span><= 5°C</span>
-                                <div style="margin-top: 5px;" class="container">
-                                    <img style="height: 40px; width: 65px;" src="assets/icons/icon_perigo.png">
-                                </div>
-                                <span style="margin-top: 15px;" class="text-alertas">Perigo Seco</span>
-                                <span style="margin-top: 10px;"> <= 50% </span>
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo Frio</span>
+                            <span>
+                                <= 5°C</span>
+                                    <div style="margin-top: 5px;" class="container">
+                                        <img style="height: 40px; width: 65px;" src="assets/icons/icon_perigo.png">
+                                    </div>
+                                    <span style="margin-top: 15px;" class="text-alertas">Perigo Seco</span>
+                                    <span style="margin-top: 10px;">
+                                        <= 50% </span>
                         </div>
                         <div class="alerta">
-                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta Frio</span> 
-                            <span> > 5°C e < 10°C</span> 
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta Frio</span>
+                            <span> > 5°C e < 10°C</span>
                                     <div style="margin-top: 5px;" class="container">
                                         <img style="height: 40px; width: 40px;" src="assets/icons/icone_atencao.png">
                                     </div>
-                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Seco</span> 
+                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Seco</span>
                                     <span style="margin-top: 10px;"> > 50% e <= 51,5%</span>
                         </div>
                         <div class="ideal">
-                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Temperatura Ideal</span> 
-                            <span> >= 10°C e <= 18°C</span> 
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Temperatura
+                                Ideal</span>
+                            <span> >= 10°C e <= 18°C</span>
                                     <div style="margin-top: 5px;" class="container">
                                         <img style="height: 44px; width: 44px;" src="assets/icons/icon_certo.png">
                                     </div>
-                                    <span style="margin-top: 15px;" class="text-alertas">Umidade Ideal</span> 
+                                    <span style="margin-top: 15px;" class="text-alertas">Umidade Ideal</span>
                                     <span style="margin-top: 7px;">>= 51,6% e <= 56,4%</span>
                         </div>
                         <div class="alerta">
-                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta Quente</span> 
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Alerta
+                                Quente</span>
                             <span>> 18°C e <= 24°C</span>
                                     <div style="margin-top: 5px;" class="container">
                                         <img style="height: 40px; width: 40px;" src="assets/icons/icone_atencao.png">
                                     </div>
-                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Úmido</span> 
+                                    <span style="margin-top: 15px;" class="text-alertas">Alerta Úmido</span>
                                     <span style="margin-top: 10px;">>= 56,5% e < 60%</span>
                         </div>
                         <div class="perigo">
-                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo Quente</span> 
+                            <span style="margin-bottom: 10px; margin-top: 8px;" class="text-alertas">Perigo
+                                Quente</span>
                             <span> >= 25°C</span>
                             <div style="margin-top: 5px;" class="container">
                                 <img style="height: 40px; width: 65px;" src="assets/icons/icon_perigo.png">
                             </div>
-                            <span style="margin-top: 15px;" class="text-alertas">Perigo Úmido</span> 
+                            <span style="margin-top: 15px;" class="text-alertas">Perigo Úmido</span>
                             <span style="margin-top: 10px;">>= 60%</span>
                         </div>
                     </div>
@@ -159,26 +164,20 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGraficos();
+    var id_dos_Setores = [];
 
+    window.onload = obterDadosSetores();
 
-    // function obterDadosGraficos() {
-    //     obterDadosGrafico(1)
-    //     obterDadosGrafico(1)
-    //     obterDadosGrafico(2)
-    //     obterDadosGrafico(2)
-    // }
+    function confirmar() {
+        obterDadosGrafico(1)
+        obterDadosGrafico(2)
+        obterDadosGrafico(3)
+        obterDadosGrafico(4)
+    }
 
-    // verificar_autenticacao();
+    function obterDadosSetores() {
 
-    // function alterarTitulo(idSensor) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idSensor}`)
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
-    // }
-
-    function obterDadosGraficos() {
-
-        fetch("/medida/contagem", {
+        fetch("/medidas/contagem", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -195,22 +194,37 @@
             if (resposta.ok) {
                 console.log(resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+                resposta.json()
+                    .then(
+                        (json) => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
 
 
 
-                    for (var i = 0; i < json.length; i++) {
-                        id_dos_Setores[i] = json[i].idSetor;
-                        console.log(id_dos_Setores[i]);
-                    }
+                            for (var i = 0; i < json.length; i++) {
+                                id_dos_Setores[i] = json[i].idsetor;
+                                console.log(id_dos_Setores[i]);
+                            }
+                            setTimeout(function exibirSetor() {
+                                for (var i = 0; i < id_dos_Setores.length; i++) {
 
 
-                });
+                                    var optionElement = document.createElement("option");
+
+                                    optionElement.value = i + 1;
+                                    optionElement.text = `Setor ${id_dos_Setores[i]}`;
+                                    var divi = document.getElementById("SETORIZACAO");
+                                    divi.appendChild(optionElement);
+
+                                }
+
+                            }, 2000);
+
+                        });
 
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro de empresa no html!");
+                throw ("Houve um erro ao tentar realizar a puxada de serores no html!");
             }
         }).catch(function (resposta) {
             console.log(`não foi ${resposta}`);
@@ -220,72 +234,13 @@
         return false;
 
     }
-    setTimeout(function exibirSetor() {
-        for (var i = 0; i < id_das_fichas.length; i++) {
 
-
-            var buttonElement = document.createElement("opition");
-
-            buttonElement.value = i + 1;
-            buttonElement.text = id_das_fichas[i];
-            var divi = document.getElementById("SETORIZACAO");
-            divi.appendChild(buttonElement);
-
-        }
-
-    }, 2000);
-
-
-
-    // verificar_autenticacao();
 
     function alterarTitulo(idSetor) {
         var tituloAquario = document.getElementById(`tituloSensor${idSetor}`)
         tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
     }
 
-
-    function exibirAquario(idSensor) {
-        let todosOsGraficos = document.getElementById("graficos")
-
-        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-            // exibindo - ou não - o gráfico
-            let elementoAtual = document.getElementById(`grafico${i}`)
-            if (elementoAtual.classList.contains("display-block")) {
-                elementoAtual.classList.remove("display-block")
-            }
-            elementoAtual.classList.add("display-none")
-
-            // alterando estilo do botão
-            // let btnAtual = document.getElementById(`btnAquario${i}`)
-            // if (btnAtual.classList.contains("btn-pink")) {
-            //     btnAtual.classList.remove("btn-pink")
-            // }
-            // btnAtual.classList.add("btn-white")
-        }
-
-        // // exibindo - ou não - o gráfico
-        // let graficoExibir = document.getElementById(`grafico${idSensor}`)
-        // graficoExibir.classList.remove("display-none")
-        // graficoExibir.classList.add("display-block")
-
-        // // alterando estilo do botão
-        // let btnExibir = document.getElementById(`btnAquario${idSensor}`)
-        // btnExibir.classList.remove("btn-white")
-        // btnExibir.classList.add("btn-pink")
-    }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idSensor) {
 
         // alterarTitulo(idSensor)
@@ -312,9 +267,6 @@
             });
     }
 
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGrafico(resposta, idSensor) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -377,16 +329,7 @@
         setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
     }
 
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idSensor, dados, myChart) {
-
-
-
         fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -399,6 +342,7 @@
 
                     // let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
                     // avisoCaptura.innerHTML = ""
+
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
@@ -436,5 +380,10 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    }
+    };
+
+
+
+
+
 </script>
