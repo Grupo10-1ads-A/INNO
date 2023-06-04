@@ -111,7 +111,8 @@
                     <div class="grafico">
 
                         <div class="card">
-                            <div class="descri">Grafico de Umidade (%)</div>
+                            <div class="descri">Grafico de Umidade (%)</div> <br>
+                            <img id="alerta" style="height: 40px; width: 40px; margin-left: 5px;" src="assets/icons/icon_atencao_colorido.png"> <br>
                             <canvas id="myChart1"></canvas>
                         </div>
                         <div class="card">
@@ -382,6 +383,65 @@
 
     };
 
+    function alertar(temperatura, idAquario) {
+        var limites_temperatura = {
+            perigo_quente: 25,
+            alerta_quente: 24,
+            temperatura_ideal: 18,
+            alerta_frio: 9,
+            perigo_frio: 5
+        };
+        var limites_umidade = {
+            perigo_umido: 60,
+            alerta_umido: 59,
+            umidade_ideal: 56,
+            alerta_seco: 51,
+            perigo_seco: 50
+        }
+
+        var classe_temperatura = 'cor-alerta';
+
+        if (temperatura >= limites.muito_quente) {
+            classe_temperatura = 'cor-alerta perigo-quente';
+            console.log("caiu no 1")
+        }
+        else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+            classe_temperatura = 'cor-alerta alerta-quente';
+            console.log("caiu no 2")
+        }
+        else if (temperatura < limites.quente && temperatura > limites.frio) {
+            classe_temperatura = 'cor-alerta ideal';
+            console.log("caiu no 3")
+        }
+        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+            classe_temperatura = 'cor-alerta alerta-frio';
+            console.log("caiu no 4")
+        }
+        else if (temperatura < limites.min_temperatura) {
+            classe_temperatura = 'cor-alerta perigo-frio';
+            console.log("caiu no 5")
+        }
+
+        var card;
+
+        if (idAquario == 1) {
+            temp_aquario_1.innerHTML = temperatura + "°C";
+            card = card_1
+        } else if (idAquario == 2) {
+            temp_aquario_2.innerHTML = temperatura + "°C";
+            card = card_2
+        } else if (idAquario == 3) {
+            temp_aquario_3.innerHTML = temperatura + "°C";
+            card = card_3
+        } else if (idAquario == 4) {
+            temp_aquario_4.innerHTML = temperatura + "°C";
+            card = card_4
+        }
+
+        // alterando
+        card.className = classe_temperatura;
+
+    }
 
 
 
