@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost" ,
     database: "INNO",
     user: "root",
-    password: "#Gf44441895844",
+    password: "1806",
 
     // "127.0.0.1"
 };
