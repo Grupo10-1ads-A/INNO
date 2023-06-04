@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styleDash.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
-    <script src="./js/alerta.js"></script>
 </head>
 <div class="help" target="blank">
     <a href="https://techinno.on.spiceworks.com/portal/registrations">
@@ -27,12 +26,17 @@
                 <p id="p_usuario">Usuário</p>
             </div>
             <div class="funcoes">
-                <button onclick="">
-                    Histórico
-                </button>
+
+                <select id="ENDERECAMENTO">
+
+                </select>
+
                 <select id="SETORIZACAO">
 
                 </select>
+                <button onclick="confirmar">
+                    Confirmar
+                </button>
             </div>
         </div>
 
@@ -112,7 +116,8 @@
 
                         <div class="card">
                             <div class="descri">Grafico de Umidade (%)</div> <br>
-                            <img id="alerta" style="height: 40px; width: 40px; margin-left: 5px;" src="assets/icons/icon_atencao_colorido.png"> <br>
+                            <img id="alerta" style="height: 40px; width: 40px; margin-left: 5px;"
+                                src="assets/icons/icon_atencao_colorido.png"> <br>
                             <canvas id="myChart1"></canvas>
                         </div>
                         <div class="card">
@@ -166,14 +171,19 @@
     let proximaAtualizacao;
 
     var id_dos_Setores = [];
+    var id_dos_enderecos = [];
+    var nome_dos_enderecos=[];
 
     window.onload = obterDadosSetores();
+    window.onload = obterDadosEndereco();
 
     function confirmar() {
-        obterDadosGrafico(1)
-        obterDadosGrafico(2)
-        obterDadosGrafico(3)
-        obterDadosGrafico(4)
+        var idSetor = SETORIZACAO.value;
+        var idEndereco = ENDERECAMENTO.value;
+        obterDadosGrafico(1, idSetor, idEndereco)
+        obterDadosGrafico(2, idSetor, idEndereco)
+        obterDadosGrafico(3, idSetor, idEndereco)
+        obterDadosGrafico(4, idSetor, idEndereco)
     }
 
     function obterDadosSetores() {
@@ -236,13 +246,75 @@
 
     }
 
+    function obterDadosEndereco() {
+
+        fetch("/medidas/contagem_ENDERECO", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fkEmpresaServer: sessionStorage.FK_EMPRESA
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json()
+                    .then(
+                        (json) => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+
+
+
+                            for (var i = 0; i < json.length; i++) {
+                                id_dos_enderecos[i] = json[i].idenderecos;
+                                nome_dos_enderecos[i] = json[i].bairro;
+                                console.log(id_dos_enderecos[i]);
+                                console.log(nome_dos_enderecos[i]);
+                            }
+                            setTimeout(function exibirSetor() {
+                                for (var i = 0; i < id_dos_enderecos.length; i++) {
+
+
+                                    var optionElement = document.createElement("option");
+
+                                    optionElement.value = id_dos_enderecos[i];
+                                    optionElement.text = ` ${nome_dos_enderecos}`;
+                                    var divi = document.getElementById("ENDERECAMENTO");
+                                    divi.appendChild(optionElement);
+
+                                }
+
+                            }, 2000);
+
+                        });
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a puxada de serores no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+
+    }
+
 
     function alterarTitulo(idSetor) {
         var tituloAquario = document.getElementById(`tituloSensor${idSetor}`)
         tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
     }
 
-    function obterDadosGrafico(idSensor) {
+    function obterDadosGrafico(idSensor, idSetor, idEndereco) {
 
         // alterarTitulo(idSensor)
 

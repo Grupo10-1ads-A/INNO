@@ -87,8 +87,17 @@ WHERE idEmpresa = ${idEmpresa};
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);}
 
+function contagem_ENDERECO (idEmpresa){  /* SOBRE SETORES*/  
+console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idEmpresa)
+var instrucao = `
+select idEndereco, bairro from endereco where fkempresa = ${idEmpresa};
+`;
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    contagem
+    contagem,
+    contagem_ENDERECO
 }
