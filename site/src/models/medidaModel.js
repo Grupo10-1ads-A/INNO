@@ -24,9 +24,9 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
             DATE_FORMAT(ds.dataHora,'%H:%i:%s') as momento_grafico 
         from 
             dadosSensor as ds 
-        where ds.fkSensor = ${idSensor} 
+        where ds.fkSensor = ${idSensor} AND ds.fkSetor = 1 AND fkEndereco = 1 
         order by ds.dataHora desc 
-        limit ${limite_linhas}`
+        limit ${limite_linhas};`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -36,7 +36,7 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idSensor) {
+function buscarMedidasEmTempoReal(idSensor,) {
 
     instrucaoSql = ''
 
@@ -58,7 +58,7 @@ function buscarMedidasEmTempoReal(idSensor) {
             fkSensor
         from 
             dadosSensor ds 
-        where ds.fkSensor = ${idSensor} 
+        where ds.fkSensor = ${idSensor} AND ds.fkSetor=1 AND fkEndereco = 1 
         order by ds.dataHora desc 
         limit 1`
     } else {
@@ -76,13 +76,13 @@ function buscar(idSensor){
 
 }
 
-function contagem (idEmpresa){  /* SOBRE SETORES*/  
-console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idEmpresa)
+function contagem (idEmpresa,idEndereco){  /* SOBRE SETORES*/  
+console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idEmpresa,idEndereco)
 var instrucao = `
 SELECT setor.idsetor from setor 
 join endereco on setor.fkEndereco = idEndereco
 join empresa on endereco.fkEmpresa = empresa.idEmpresa
-WHERE idEmpresa = ${idEmpresa};
+WHERE idEmpresa = ${idEmpresa} AND setor.fkEndereco = ${idEndereco};
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);}
@@ -95,9 +95,18 @@ select idEndereco, bairro from endereco where fkempresa = ${idEmpresa};
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);}
 
+function titulo (idSetor){  /* SOBRE SETORES*/  
+console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idSetor)
+var instrucao = `
+select*from setor where fkendereco = 1 AND idSetor = ${idSetor};
+`;
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     contagem,
-    contagem_ENDERECO
+    contagem_ENDERECO,
+    titulo
 }

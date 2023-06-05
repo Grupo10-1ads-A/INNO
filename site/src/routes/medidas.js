@@ -11,6 +11,10 @@ router.post("/contagem_ENDERECO", function (req, res) {
     medidaController.contagem_ENDERECO(req, res);
 });//CONTAGEM DE ENDEREÇOS
 
+router.post("/titulo", function (req, res) {
+    medidaController.titulo(req, res);
+});
+
 router.get("/ultimas_umidades/:idSensor", function (req, res) {
     medidaController.buscarUltimasMedidasUmidades(req, res);
 });
@@ -34,5 +38,7 @@ router.get("/ultimas/:idSensor", function (req, res) {
 router.get("/tempo-real/:idSensor", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 });
+
+
 
 module.exports = router;

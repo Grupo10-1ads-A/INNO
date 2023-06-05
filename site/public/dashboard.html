@@ -31,7 +31,9 @@
                 <select id="ENDERECAMENTO">
 
                 </select>
-
+                <button onclick="obterDadosSetores()">
+                    Confirmar Endereço
+                </button>
                 <select id="SETORIZACAO">
 
                 </select>
@@ -165,27 +167,78 @@
 <script>
 
     p_usuario.innerHTML = sessionStorage.NOME_USUARIO
-    h1_setor.innerHTML = "Setor 1 - Pães"
 
     let proximaAtualizacao;
 
     var id_dos_Setores = [];
     var id_dos_enderecos = [];
-    var nome_dos_enderecos=[];
+    var nome_dos_enderecos = [];
+    idSetor = "";
+    idEndereco = "";
 
-    window.onload = obterDadosSetores();
     window.onload = obterDadosEndereco();
+    
+
+    function mudartitulo() {
+
+        fetch("/medidas/titulo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fkEmpresaServer: sessionStorage.FK_EMPRESA,
+                idSetorServer: SETORIZACAO.value
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json()
+                    .then(
+                        (json) => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+
+
+                            h1_setor.innerHTML =`Setor ${json.idSetor} ${json.nome}`
+                        });
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a puxada de serores no html!");
+            }
+        }).catch(function (resposta) {
+            console.log(`não foi ${resposta}`);
+
+        });
+
+        return false;
+
+    }
+
+
+
+
 
     function confirmar() {
         var idSetor = SETORIZACAO.value;
         var idEndereco = ENDERECAMENTO.value;
-        obterDadosGrafico(1, idSetor, idEndereco)
-        obterDadosGrafico(2, idSetor, idEndereco)
-        obterDadosGrafico(3, idSetor, idEndereco)
-        obterDadosGrafico(4, idSetor, idEndereco)
+        obterDadosGrafico(1)
+        obterDadosGrafico(2)
+        obterDadosGrafico(3)
+        obterDadosGrafico(4)
+        mudartitulo()
     }
 
     function obterDadosSetores() {
+
+        var enderecoX = ENDERECAMENTO.value;
+        console.log(`o endereço é ${enderecoX}`)
 
         fetch("/medidas/contagem", {
             method: "POST",
@@ -195,7 +248,9 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                fkEmpresaServer: sessionStorage.FK_EMPRESA
+                fkEmpresaServer: sessionStorage.FK_EMPRESA,
+                fkEnderecoServer: enderecoX
+
             })
         }).then(function (resposta) {
 
@@ -271,9 +326,8 @@
                             console.log(JSON.stringify(json));
 
 
-
                             for (var i = 0; i < json.length; i++) {
-                                id_dos_enderecos[i] = json[i].idenderecos;
+                                id_dos_enderecos[i] = json[i].idEndereco;
                                 nome_dos_enderecos[i] = json[i].bairro;
                                 console.log(id_dos_enderecos[i]);
                                 console.log(nome_dos_enderecos[i]);
@@ -285,9 +339,13 @@
                                     var optionElement = document.createElement("option");
 
                                     optionElement.value = id_dos_enderecos[i];
-                                    optionElement.text = ` ${nome_dos_enderecos}`;
-                                    var divi = document.getElementById("ENDERECAMENTO");
-                                    divi.appendChild(optionElement);
+                                    optionElement.text = nome_dos_enderecos[i];
+                                    var dive = document.getElementById("ENDERECAMENTO");
+                                    dive.appendChild(optionElement);
+                                    console.log(optionElement.value)
+                                    console.log(optionElement.text)
+
+
 
                                 }
 
@@ -313,7 +371,7 @@
         tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
     }
 
-    function obterDadosGrafico(idSensor, idSetor, idEndereco) {
+    function obterDadosGrafico(idSensor) {
 
         // alterarTitulo(idSensor)
 
@@ -453,6 +511,7 @@
             });
 
     };
+
 
     function alertar(temperatura, idAquario) {
         var limites_temperatura = {
