@@ -18,7 +18,7 @@
 
 <body>
     <div class="geral">
-
+        
         <div class="user">
             <div class="profile">
                 <div class="profileIcon">
@@ -118,11 +118,16 @@
                     <div class="grafico">
 
                         <div class="card">
-                            <div class="descri">Grafico de Umidade (%)</div> <br>
+                            <div class="descri">Sensor 1</div> <br>
+                            <div>
+                                <span id="div_alerta1"></span>
+                                <span id="div_alerta2"></span>
+                            </div>
                             <canvas id="myChart1"></canvas>
                         </div>
                         <div class="card">
-                            <div class="descri">Grafico de Temperatura (C°)</div>
+                            <div class="descri">Sensor 2</div> <br>
+                            <!-- <div style="height: 15px; width: 15px;"><img src="assets/icons/icon_atencao_colorido.png" alt=""></div> -->
                             <canvas id="myChart2"></canvas>
                         </div>
 
@@ -131,25 +136,13 @@
                     <div class="grafico">
 
                         <div class="card">
-                            <div class="descri">Grafico de Umidade (%)</div>
+                            <div class="descri">Sensor 3</div>
+                            
                             <canvas id="myChart3"></canvas>
                         </div>
                         <div class="card">
-                            <div class="descri">Grafico de Temperatura (°C)</div>
+                            <div class="descri">Sensor 4</div>
                             <canvas id="myChart4"></canvas>
-                        </div>
-
-                    </div>
-
-                    <div class="grafico">
-
-                        <div class="card">
-                            <div class="descri">Grafico de Umidade (%)</div>
-                            <canvas id="myChart5"></canvas>
-                        </div>
-                        <div class="card">
-                            <div class="descri">Grafico de Temperatura (°C)</div>
-                            <canvas id="myChart6"></canvas>
                         </div>
 
                     </div>
@@ -175,6 +168,8 @@
     var nome_dos_enderecos = [];
     idSetor = "";
     idEndereco = "";
+    var global_temp = '';
+    var global_umi = '';
 
     window.onload = obterDadosEndereco();
     
@@ -465,7 +460,7 @@
                 response.json().then(function (novoRegistro) {
 
                     // obterdados(idSensor);
-                    // alertar(novoRegistro, idSensor);
+                    alertar(dados, idSetor, idSensor, idEndereco);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
@@ -493,6 +488,9 @@
 
                         dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
                         dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        global_temp = novoRegistro[0].temperatura;
+                        global_umi = novoRegistro[0].umidade;
 
                         myChart.update();
                     }
@@ -535,19 +533,29 @@
             console.log("nada")
         }
         else if (global_temp >= 10 && global_temp <= 18) {
-            console.log("caiu no 1")
+            console.log("ideal")
+            div_alerta1.innerHTML="temperatura ideal"
+            div_alerta1.style.color="green"
         }
         else if (global_temp > 18 && global_temp <= 24) {
-            console.log("caiu no 2")
+            console.log("alerta quente")
+            div_alerta1.innerHTML="alerta quente"
+            div_alerta1.style.color="yellow"
         }
         else if (global_temp > 24) {
-            console.log("caiu no 3")
+            console.log("perigo quente")
+            div_alerta1.innerHTML="perigo quente"
+            div_alerta1.style.color="red"
         }
         else if (global_temp > 5 && global_temp < 10) {
-            console.log("caiu no 4")
+            console.log("alerta frio")
+            div_alerta1.innerHTML="alerta frio"
+            div_alerta1.style.color="yellow"
         }
         else if(global_temp <= 5){
-            console.log("caiu no 5")
+            console.log("perigo frio")
+            div_alerta1.innerHTML="perigo frio"
+            div_alerta1.style.color="red"
         }
 
         /* umidade */
@@ -555,19 +563,25 @@
             console.log("nada")
         }
         else if (global_umi >= 51 && global_umi <= 56) {
-            console.log("caiu no 1")
+            console.log("ideal")
+            div_alerta2.innerHTML="umidade ideal"
         }
         else if (global_umi >= 56 && global_umi < 60) {
-            console.log("caiu no 2")
+            console.log("alerta umido")
+            div_alerta2.innerHTML="alerta umido"
         }
         else if (global_umi >= 60) {
-            console.log("caiu no 3")
+            console.log("perigo úmido")
+            div_alerta2.innerHTML="perigo umido"
+
         }
         else if (global_umi <= 51 && global_umi > 50) {
-            console.log("caiu no 4")
+            console.log("alerta seco")
+            div_alerta2.innerHTML="alerta seco"
         }
         else if (global_umi <= 50) {
-            console.log("caiu no 5")
+            console.log("perigo seco")
+            div_alerta2.innerHTML="perigo seco"
         }
 
     }
